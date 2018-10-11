@@ -32,9 +32,7 @@ int main(){
 #endif
 	real_t *A,*B;
 	int_t n,m,temp;
-	std::string dir = "Data/QuadPendulumMPCmat";
-	//std::string dir = "Data/QuadMPCmat";
-	//std::string dir = "Data/MPCmat";
+	std::string dir = "Data/MPCmat";
 
 	// load matrices A and B
 	std::string tmp=dir+"/A";
@@ -47,15 +45,10 @@ int main(){
 	real_t *Ax = new real_t[n],*Bu = new real_t [n];
 
 	// loads MPC problem data into pmpc object
-	QuadPendMPCSolver pmpc(dir);
-	//QuadMPCSolver pmpc(dir);
-	//MPCSolver pmpc(dir);
+	MPCSolver pmpc(dir);
 
 	int_t tmax = 600;						// simulation duration
-	real_t x0[] = { 2.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	//real_t x0[] = {2, 1, -1, 5, 2, 4, 0, 0, 0};
-	//real_t x0[] = {0.5, 0.5, 0.5, 0.5};
-	//real_t x0[] = { 8.1022 ,-0.9686, -1.2971, 0.3173 };
+	real_t x0[] = {0.5, 0.5, 0.5, 0.5};
 	
 	
 	real_t *x = new real_t [tmax*n],
@@ -64,8 +57,7 @@ int main(){
 	Utils::VectorCopy(x0,x,n);
 
 	// for the QuadMPC, solve one time step outside loop	(due to u(-1))
-	pmpc.solve(&x[0],0);	
-	//pmpc.solve(&x[0]);	
+	pmpc.solve(&x[0]);	
 	pmpc.getSolutionCopy(&u[0]);
 	Utils::MatrixMult(A,&x[0],Ax,n,n,1);
 	Utils::MatrixMult(B,&u[0],Bu,n,m,1);
@@ -76,8 +68,7 @@ int main(){
 #ifdef TIME
 	tqpStart = Utils::getCPUtime();
 #endif
-        pmpc.solve(&x[n*i],&u[m*(i-1)]);    
-		//pmpc.solve(&x[n*i]);	
+		pmpc.solve(&x[n*i]);	
 		pmpc.getSolutionCopy(&u[m*i]);
 #ifdef TIME
 	tqpTot += Utils::getCPUtime()-tqpStart;
