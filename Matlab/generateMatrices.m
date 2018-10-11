@@ -1,35 +1,18 @@
-%% Modified for QR implementation
-% 24.05.18
 
-%% 
-% This function is intended to be a matlab interface to the C++
-% implementation. It collects and calculates all the necessary problem data
-% for the C++ implementation.
-%
-% Input:    H   Hessian of the QP.
-%           A,B equality constraint of the QP (A*eta=B*x0, with x0 the
-%               specific initial condition)
-%           T   matrix that defines the semi-infinite input and state 
-%               constraints. The constraint reads as u_l <= T [x;u] <= u_u, 
-%               where x is the state trajectory, u the input trajectory,
-%               that are both parametrized with the basis functions.
-%       Md,tau0 defines the basis functions \tau(k+1)=Md \tau(k),
-%               \tau(0)=tau0
-%
-% Output:  handle  handle to the generated qp-instance, obtain the solution
-%                  via pdMPC('s',handle,x0)
-%
-function generateMatrices(moas,path)
+
+function handle = generateMatrices(moas)
+% This function generates all the matrices required for the C++ implementation 
+% of the problem and initializes the parameterized MPC solver.
 %% User defined settings for parameterized MPC
+
+% path to the .txt files: inputs for C++
+path  = '..\pdMPC_discrete\build\Data\MPCmat';
 
 tolMin  = 1e-9;     % minimum tolerance for constraint check
 tolMax  = 1e-5;     % maximum tolerance for constraint check
 MAXITER = 50;       % maximum number of iterations of active-set method
 
 %% Derived variables
-
-% add mex-compiled-function to the path.
-addpath('..\pdMPC_discrete\src\MatlabInterface');
 
 % Objective function
 H = blkdiag(kron(moas.sys.Q,eye(moas.apx.s)), kron(moas.sys.R,eye(moas.apx.s)));
@@ -130,3 +113,9 @@ vec2dense(tmp(:),strcat(path,'\A'));
 tmp=moas.sys.B';
 vec2dense(tmp(:),strcat(path,'\B'));
 
+%% Initialize parameterized MPC solver
+
+% generate mex function
+run('..\pdMPC_discrete\src\MatlabInterface\make.m')
+% initialize solver
+handle = pdMPC_discrete('i',path);

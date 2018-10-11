@@ -65,3 +65,6 @@ for k = 2:nsteps
           + 1/2*utraj(k-1,:)*moas.sys.R*utraj(k-1,:)'*moas.sys.Ts;
     
 end
+
+% terminate solver
+pdMPC_discrete('d',handle);
