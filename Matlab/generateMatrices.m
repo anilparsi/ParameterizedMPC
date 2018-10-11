@@ -38,6 +38,7 @@ Z = moas.Z;
 
 G  = moas.Z'*H*moas.Z;
 F  = moas.Z'*H*moas.C;
+g  = F*moas.sys.x0;
 L  = chol(G,'lower');
 Li = inv(L);
 
@@ -51,11 +52,11 @@ AiZ = moas.Aineq * moas.Z;
 params=[tolMin;                     
         tolMax;
         MAXITER;
-        sys.m*apx.s-sys.n;              % nz := number of variables in reduced problem
-        length(moas.lbineq);            % nc := number of inequality constraints
-        sys.n;
-        sys.m;
-        apx.s;
+        moas.sys.m * moas.apx.s - moas.sys.n;   % nz := number of variables in reduced problem
+        length(moas.lbineq);                    % nc := number of inequality constraints
+        moas.sys.n;
+        moas.sys.m;
+        moas.apx.s;
         ];
     
 % print the parameters and problem data to txt files that can the be read
@@ -74,11 +75,14 @@ vec2dense(tmp(:),strcat(path,'\AiC'));
 tmp=moas.C';
 vec2dense(tmp(:),strcat(path,'\C'));
 
-tmp=kron(eye(sys.m),moas.apx.tau0d(:,1)')';
+tmp=kron(eye(moas.sys.m),moas.apx.tau0d(:,1)')';
 vec2dense(tmp(:),strcat(path,'\eta2u'));
 
 tmp=F';
 vec2dense(tmp(:),strcat(path,'\F'));
+
+tmp=g';
+vec2dense(tmp(:),strcat(path,'\g'));
 
 tmp=moas.Z';
 vec2dense(tmp(:),strcat(path,'\Z'));
@@ -89,7 +93,7 @@ vec2dense(tmp(:),strcat(path,'\Li'));
 tmp = (Li'*Li)';
 vec2dense(tmp(:),strcat(path,'\LiTLi'));
 
-tmp=AiZ';
+tmp = AiZ';
 vec2dense(tmp(:),strcat(path,'\AiZ'));
 
 tmp = (moas.Cs*moas.C)';
@@ -108,10 +112,10 @@ vec2dense(tmp(:),strcat(path,'\norms'));
 tmp = moas.tauk; 
 vec2dense(tmp(:),strcat(path,'\tauk'));
 
-tmp = moas.b_l';
+tmp = moas.sys.b_l';
 vec2dense(tmp(:),strcat(path,'\b_l'));
 
-tmp = moas.b_u';
+tmp = moas.sys.b_u';
 vec2dense(tmp(:),strcat(path,'\b_u'));
 
 tmp = moas.lbineq';
@@ -120,9 +124,9 @@ vec2dense(tmp(:),strcat(path,'\lbineq'));
 tmp = moas.ubineq';
 vec2dense(tmp(:),strcat(path,'\ubineq'));
 
-tmp=A';
+tmp=moas.sys.A';
 vec2dense(tmp(:),strcat(path,'\A'));
 
-tmp=B';
+tmp=moas.sys.B';
 vec2dense(tmp(:),strcat(path,'\B'));
 

@@ -8,7 +8,7 @@ addpath('C:\Program Files\IBM\ILOG\CPLEX_Studio128\cplex\matlab\x64_win64');
 sys = defineSystem();
 
 %% Define approximation
-apx = defineApproximation();
+apx = defineApproximation(sys);
 
 %% Generate maximum output admissible set (MOAS)
 moas = generateMOAS(sys,apx);
@@ -29,4 +29,6 @@ handle = pdMPC_discrete('i',path);
 %% Closed Loop Simulation
 
 % simulate in closed-loop
-[t,xtraj,utraj,iter,exectime,J,opt] = simulatepdMPC(handle,moas);
+[t,xtraj,utraj,iter,exectime,J] = simulatepdMPC(handle,moas);
+
+pdMPC_discrete('d',handle);

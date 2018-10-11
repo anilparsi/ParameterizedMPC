@@ -8,7 +8,7 @@ skip_iter = 10;
 
 % Maximum value of t_star the algorithm can converge to. If
 % max_iter<skip_iter, then all the constraints upto max_iter are included
-max_iter = 1000;  
+max_iter = 100;  
 
 % Data storage variables
 save_data = true;
@@ -101,7 +101,7 @@ ubineq = [];
 for i = 1:length(time_indices)    
     ind = time_indices(i,:)>0;    
     Aineq  = [Aineq; [kron(CX(ind,:),(apx.Md^(i-1)*apx.tau0d)'),...
-                kron(CU(ind,:),(apx.Md^(i-1)*apx.tau0d)')]];
+                kron(CU(ind,:),(apx.Md^(i-1)*apx.tau0d)')]*Z];
     lbineq = [lbineq; sys.b_l(ind)];
     ubineq = [ubineq; sys.b_u(ind)];
 end

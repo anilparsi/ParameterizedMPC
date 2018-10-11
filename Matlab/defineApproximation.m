@@ -1,4 +1,4 @@
-function apx = defineApproximation()
+function apx = defineApproximation(sys)
 %% Function to define approximations
 % Default basis functions: Laguerre functions
 % alpha : decay constant
@@ -8,11 +8,15 @@ function apx = defineApproximation()
 % tau0c : continuous-time basis functions at k = 0
 
 %% User-defined variables
-apx.alpha = getDefaultAlpha(A,B,Q,R);                
-apx.s     = floor(n/m)*2;                  % min s: n/m       
+% apx.alpha = getDefaultAlpha(sys.A,sys.B,sys.Q,sys.R);         
+apx.alpha = 0.7;               
 
+% apx.s     = floor(sys.n/sys.m)*2;                  % min s: n/m    
+apx.s     = 9;    
+
+apx.Ts    = 0.02;
 %% Derived variables
-if apx.s <= floor(n/m)
+if apx.s <= floor(sys.n/sys.m)
     error('Increase number of basis functions')
 end
 
@@ -21,10 +25,11 @@ tau0c = sqrt(2*apx.alpha)*ones(apx.s,1);
 Mc    = -2*apx.alpha*tril(ones(apx.s))+apx.alpha*eye(apx.s);
 
 % obtain the discretized version by taking the matrix exponential
-apx.Md = expm(Mc*Ts); 
+apx.Md = expm(Mc*apx.Ts); 
 
 % orthonormalize to obtain discrete-time basis functions
-T     = chol(dlyap(Md,tau0c*tau0c'),'lower');       % transformation matrix
+P     = dlyap(apx.Md,tau0c*tau0c');
+T     = chol(P,'lower');       % transformation matrix
 apx.Md    = T\(apx.Md*T);
 apx.tau0d = T\tau0c;
 

@@ -23,7 +23,7 @@ Bc=[0;0;0;1;];
 
 % constraints: b_l <= Cxu * [x(k);u(k)] <= b_u
 % stack all state constraints at the top
-sys.Cxu = [1 0 0 0 0
+sys.Cxu = [1 1 1 1 0
            0 0 0 0 1];   
 sys.b_l = [-.1; -0.5];
 sys.b_u = [10; 0.5,];

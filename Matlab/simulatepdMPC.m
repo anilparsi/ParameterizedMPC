@@ -18,12 +18,17 @@
 %           opt      exitflag of the MPC solver (not implemented)
 %
 function [time,xtraj,utraj,iter,exectime,J] = simulatepdMPC(handle,moas)
+%% User defined variables
 
+% simulation time
+tend = 15;
+
+%%
 % number of simulation steps
-nsteps = tend/Ts+1;
+nsteps = tend/moas.sys.Ts+1;
 
 % set up vectors to store the input and state trajectories
-time = [0:Ts:tend]';
+time = [0:moas.sys.Ts:tend]';
 xtraj = zeros(nsteps,moas.sys.n);
 utraj = zeros(nsteps,moas.sys.m);
 iter = zeros(nsteps-1,1);         % store the number of iterations
