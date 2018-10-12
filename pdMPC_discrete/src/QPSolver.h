@@ -33,6 +33,9 @@ public:
 	
 	// update problem for warmstart
 	void	updateProblem();
+
+	// copy the solution
+	void	getSolutionCopy(real_t *z_out) const;
 private:
 	// Perform initialization
 	void	initialize();

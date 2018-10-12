@@ -1,9 +1,6 @@
 clc;
 clear;
 
-%% Add CPLEX to matlab path
-addpath('C:\Program Files\IBM\ILOG\CPLEX_Studio128\cplex\matlab\x64_win64');
-
 %% Define system
 sys = defineSystem();
 

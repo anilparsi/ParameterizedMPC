@@ -486,3 +486,9 @@ void QPSolver::calculateError(const int_t idx,const real_t *const x, real_t *con
 	};
 
 }
+
+void QPSolver::getSolutionCopy(real_t *z_out) const {
+	for (int i = 0; i < nz; ++i) {
+		z_out[i] = z[i];
+	}
+}

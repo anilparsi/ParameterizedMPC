@@ -91,28 +91,11 @@ void mexFunction( int_t nlhs, mxArray* plhs[], int_t nrhs, const mxArray* prhs[]
 		plhs[1]= mxCreateDoubleMatrix(MPC_instances[handle]->getNumberOfOutputs(),1,mxREAL);
 		plhs[2]=mxCreateDoubleScalar((real_t)MPC_instances[handle]->getIterNumber());
 		double *u= mxGetPr( plhs[1] );
-		MPC_instances[handle]->getSolutionCopy(u);
+		MPC_instances[handle]->getControlInputs(u);
 		//printf("u is %f\n",*u);
 
 	}
-	/*
-	else if(strcmp( typeString, "m")==0){
-		// get instance
-		int_t handle = (uint_t)mxGetScalar(prhs[1]);
-
-		MPC_instances[handle]->shiftByOne();
-
-		nlhs=1;
-		plhs[0]=mxCreateDoubleScalar(handle);
-	}else if(strcmp( typeString,"r")==0){
-		// get instance
-		int_t handle = (uint_t)mxGetScalar( prhs[1] );
-		MPC_instances[handle]->reset();
-
-		nlhs=1;
-		plhs[0]=mxCreateDoubleScalar(handle);
-	}
-	*/else if(strcmp( typeString,"d")==0){
+	else if(strcmp( typeString,"d")==0){
 		int_t handle = (uint_t)mxGetScalar( prhs[1] );
 		deleteMPCProblem(handle);
 		nlhs=1;

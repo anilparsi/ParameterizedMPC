@@ -12,7 +12,7 @@ public:
 	void	solve(const real_t *const x_IC);
 	
 	// gives control inputs
-	void	getSolutionCopy(real_t *u_out) const;
+	void	getControlInputs(real_t *u_out) const;
 
 	// gives size of control inputs
 	int_t	getNumberOfOutputs() const {return m;}

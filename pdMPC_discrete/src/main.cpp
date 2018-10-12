@@ -1,8 +1,6 @@
 #pragma once
 #include "QPSolver.h"
 #include "MPCSolver.h"
-#include "QuadMPCSolver.h"
-#include "QuadPendMPCSolver.h"
 #include "DefineSettings.h"
 #include "Utils.h"
 
@@ -69,7 +67,7 @@ int main(){
 	tqpStart = Utils::getCPUtime();
 #endif
 		pmpc.solve(&x[n*i]);	
-		pmpc.getSolutionCopy(&u[m*i]);
+		pmpc.getControlInputs(&u[m*i]);
 #ifdef TIME
 	tqpTot += Utils::getCPUtime()-tqpStart;
 #endif

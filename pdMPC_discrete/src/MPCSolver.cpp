@@ -239,7 +239,7 @@ void MPCSolver::checkConstraints_skip(){
 	viol = (max_error>TOL);
 		
 }
-void MPCSolver::getSolutionCopy(real_t *u_out) const{
+void MPCSolver::getControlInputs(real_t *u_out) const{
 	for(int i=0;i<m;++i){
 	u_out[i] = u[i];
 	}
