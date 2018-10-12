@@ -1,5 +1,3 @@
-
-
 function handle = generateMatrices(moas)
 % This function generates all the matrices required for the C++ implementation 
 % of the problem and initializes the parameterized MPC solver.
@@ -72,9 +70,6 @@ vec2dense(tmp(:),strcat(path,'\Z'));
 
 tmp=Li';
 vec2dense(tmp(:),strcat(path,'\Li'));
-
-tmp = (Li'*Li)';
-vec2dense(tmp(:),strcat(path,'\LiTLi'));
 
 tmp = AiZ';
 vec2dense(tmp(:),strcat(path,'\AiZ'));

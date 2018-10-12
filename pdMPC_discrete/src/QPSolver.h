@@ -15,6 +15,11 @@ public:
 	//Default constructor
 	QPSolver(std::string dir);
 
+	// Constructor for C++ interface
+	QPSolver(real_t * Li_i, real_t * g_i, real_t * Aineq_i, real_t * lbineq_i,
+			real_t * ubineq_i, int_t nz_i, int_t nc_i,
+			real_t tolMin_i = 1e-9, real_t tolMax_i = 1e-5, int_t MAXITER_i = 50, int_t iterRelax_i = 25);
+
 	~QPSolver(); // destructor
 	
 	// solve QP with inequality constraints using incremental Active Set approach
@@ -29,6 +34,8 @@ public:
 	// update problem for warmstart
 	void	updateProblem();
 private:
+	// Perform initialization
+	void	initialize();
 	// perform standard active set approach (when lambda>0)
 	void	activeSetIterations(const int_t extra_idx=0);
 

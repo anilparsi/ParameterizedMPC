@@ -77,30 +77,57 @@ QPSolver::QPSolver(std::string dir){
 	tmp=dir+"/ubineq";
 	Utils::LoadVec(tmp.c_str(),&ubineq,tmp2);			
 
+	initialize();
+}
 
+QPSolver::QPSolver(real_t * Li_i, real_t * g_i, real_t * Aineq_i, real_t * lbineq_i,
+	real_t * ubineq_i, int_t nz_i, int_t nc_i,
+	real_t tolMin_i, real_t tolMax_i, int_t MAXITER_i, int_t iterRelax_i)
+{
+	Li = Li_i;
+	g = g_i;
+	AiZ = Aineq_i;
+	lbineq = lbineq_i;
+	ubineq = ubineq_i;
+
+	// get parameters
+	nz = nz_i;
+	nc = nc_i;
+	tolMin = tolMin_i;
+	tolMax = tolMax_i;
+	MAXITER = MAXITER_i;
+	iterRelax = iterRelax_i;
+
+	// start with minimum tolerance
+	TOL = tolMin;
+
+	initialize();
+}
+
+void QPSolver::initialize()
+{
 	z = new real_t[nz]();
-	
-	lambda  = new real_t [nz]();
-	activeCons = new ActiveConstraints(AiZ,lbineq,ubineq,Li,nz);
 
-	assert(nz<=MAX_VARS && "nz is less than MAX_VARS");
+	lambda = new real_t[nz]();
+	activeCons = new ActiveConstraints(AiZ, lbineq, ubineq, Li, nz);
+
+	assert(nz <= MAX_VARS && "nz is less than MAX_VARS");
 
 
-	temp_nz		= new real_t [nz];
-	temp_nz2	= new real_t [nz];
-	
-	z_sol		= new real_t [nz];
-	delta		= new real_t [nz];
-	a_del		= new real_t [nz];
-	LiTLi		= new real_t[nz*nz];
-	indices		= new int_t[nz + 1];
+	temp_nz = new real_t[nz];
+	temp_nz2 = new real_t[nz];
+
+	z_sol = new real_t[nz];
+	delta = new real_t[nz];
+	a_del = new real_t[nz];
+	LiTLi = new real_t[nz*nz];
+	indices = new int_t[nz + 1];
 
 	// construct LiTLi matrix;
 	real_t *temp_nznz = new real_t[nz*nz];
 	Utils::MatrixTranspose(Li, temp_nznz, nz, nz);
-	Utils::MatrixMult(temp_nznz,Li, LiTLi, nz, nz, nz);
+	Utils::MatrixMult(temp_nznz, Li, LiTLi, nz, nz, nz);
 	delete[] temp_nznz;
-
 }
 
 QPSolver::~QPSolver(){
@@ -256,6 +283,8 @@ void QPSolver::updateProblem()
 	// update the active set for warm start
 	activeCons->updateActiveSet();
 }
+
+
 
 void QPSolver::activeSetIterations(const int_t extra_idx){
 	/* This is only called in two cases: 
