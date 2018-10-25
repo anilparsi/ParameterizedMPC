@@ -22,6 +22,8 @@
 	extern int_t it_count;
 #endif
 
+// Check implementation of parameterized MPC 
+/*
 int main(){
 	
 #ifdef TIME
@@ -91,4 +93,46 @@ int main(){
 	delete[] Ax;
 	delete[] Bu;
 	return 0;
+}
+*/
+
+
+// Check the QPSolver constructor with matrices given as pointers
+int main(){
+
+real_t *Li,*g,*Aineq,*lbineq,*ubineq;
+int_t nz,nc,temp;
+std::string dir = "Data/MPCmat";
+
+// load matrices
+std::string tmp = dir+"/g";
+Utils::LoadVec(tmp.c_str(), &g, nz);
+
+tmp = dir + "/Li";
+Utils::LoadVec(tmp.c_str(), &Li, temp);
+
+tmp = dir + "/AiZ";
+Utils::LoadVec(tmp.c_str(), &Aineq, temp);
+
+tmp = dir + "/lbineq";
+Utils::LoadVec(tmp.c_str(), &lbineq, nc);
+
+tmp = dir + "/ubineq";
+Utils::LoadVec(tmp.c_str(), &ubineq, temp);
+
+// Call constructor from matrices
+QPSolver solver(Li,g,Aineq,lbineq,ubineq,nz,nc,1e-9,1e-9);
+
+solver.solve();
+
+real_t *z = new real_t[nz];
+solver.getSolutionCopy(z);
+
+for (int_t i = 0; i < nz; i++)
+{
+	printf("\n%f", z[i]);
+}
+
+delete[] z;
+return 0;
 }

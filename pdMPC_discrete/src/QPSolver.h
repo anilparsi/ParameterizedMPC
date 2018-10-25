@@ -16,9 +16,9 @@ public:
 	QPSolver(std::string dir);
 
 	// Constructor for C++ interface
-	QPSolver(real_t * Li_i, real_t * g_i, real_t * Aineq_i, real_t * lbineq_i,
-			real_t * ubineq_i, int_t nz_i, int_t nc_i,
-			real_t tolMin_i = 1e-9, real_t tolMax_i = 1e-5, int_t MAXITER_i = 50, int_t iterRelax_i = 25);
+	QPSolver(const real_t*const Li_i, const real_t*const g_i, const real_t*const Aineq_i,
+		const real_t*const lbineq_i, const real_t*const ubineq_i, const int_t nz_i, const int_t nc_i,
+		const real_t tolMin_i = 1e-9, const real_t tolMax_i = 1e-5, const int_t MAXITER_i = 50, const int_t iterRelax_i = 25);
 
 	~QPSolver(); // destructor
 	

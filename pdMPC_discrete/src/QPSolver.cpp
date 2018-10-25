@@ -80,16 +80,31 @@ QPSolver::QPSolver(std::string dir){
 	initialize();
 }
 
-QPSolver::QPSolver(real_t * Li_i, real_t * g_i, real_t * Aineq_i, real_t * lbineq_i,
-	real_t * ubineq_i, int_t nz_i, int_t nc_i,
-	real_t tolMin_i, real_t tolMax_i, int_t MAXITER_i, int_t iterRelax_i)
+QPSolver::QPSolver(const real_t*const Li_i, const real_t*const g_i, const real_t*const Aineq_i,
+	const real_t*const lbineq_i, const real_t*const ubineq_i, const int_t nz_i, const int_t nc_i,
+	const real_t tolMin_i, const real_t tolMax_i, const int_t MAXITER_i, const int_t iterRelax_i)
 {
-	Li = Li_i;
-	g = g_i;
-	AiZ = Aineq_i;
-	lbineq = lbineq_i;
-	ubineq = ubineq_i;
+	// check input matrices 
+	if (!Li_i || !g_i || !Aineq_i || !lbineq_i || !ubineq_i)
+	{
+		assert(false && "Input matrix not proper.\n");
+		return;
+	}
 
+	// initialize matrices
+	Li = new real_t[nz_i*nz_i];
+	g = new real_t[nz_i];
+	AiZ = new real_t[nz_i*nc_i];
+	lbineq = new real_t[nc_i];
+	ubineq = new real_t[nc_i];
+
+	// Copy matrices
+	Utils::VectorCopy(Li_i, Li, nz_i*nz_i);
+	Utils::VectorCopy(g_i, g, nz_i);
+	Utils::VectorCopy(Aineq_i, AiZ, nz_i*nc_i);
+	Utils::VectorCopy(lbineq_i, lbineq, nc_i);
+	Utils::VectorCopy(ubineq_i, ubineq, nc_i);
+	
 	// get parameters
 	nz = nz_i;
 	nc = nc_i;
