@@ -9,7 +9,7 @@ function apx = defineApproximation(sys)
 
 %% User-defined variables
 % apx.alpha = getDefaultAlpha(sys.A,sys.B,sys.Q,sys.R);         
-apx.alpha = 0.7;               
+apx.alpha = 0.9;               
 
 % apx.s     = floor(sys.n/sys.m)*2;                  % min s: n/m    
 apx.s     = 9;    

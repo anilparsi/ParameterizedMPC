@@ -48,8 +48,7 @@ sys.p = size(sys.Cxu,1);
 
 % find number of state constraints
 for i = 1:sys.n
-    if ~any(sys.Cxu(i,1:sys.n))
-        % no state variable involved in the constraint
+    if all(sys.Cxu(i,1:sys.n))
         sys.px = i-1;
         break; 
     end    

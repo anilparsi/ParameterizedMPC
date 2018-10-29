@@ -51,16 +51,9 @@ t_min = 1;
 t_max = max_iter;
 % Check t_star = max_iter
 time_indices(2:max_iter+1,p) = ones(max_iter,p);
-[cons, cons_lb, cons_ub] = generateConsSet(all_cons, all_cons_lb, all_cons_ub, time_indices);
-[converged,exitflag] = solve_lp(f1,cons,cons_lb,cons_ub,sys.b_l,sys.b_u,options);
+generateConsSet();
 
-if exitflag == -2
-    % infeasible problem
-    
-elseif exitflag == -3
-    % unbounded problem
-    
-end
+    [converged,exitflag] = solve_lp(f1,cons,cons_lb,cons_ub,sys.b_l,sys.b_u,options);
 
 while ~all(converged) && t_max-t_min > max_diff
     
@@ -156,16 +149,13 @@ if (save_data)
     save(datafile,'moas')
 end
 
-
-end
-
-%% Function to generate constraint sets 
-function [cons, cons_lb, cons_ub] = generateConsSet(all_cons, all_cons_lb, all_cons_ub, time_indices)
-    % get active constraint indices
-    indices = reshape(time_indices,[],1);
-
-    % build constraint set
-    cons = all_cons(indices>0,:);
-    cons_lb = all_cons_lb(indices>0,:);
-    cons_ub = all_cons_ub(indices>0,:);
+    function generateConsSet()
+        % get active constraint indices
+        indices = reshape(time_indices,[],1);
+        
+        % build constraint set
+        cons = all_cons(indices>0,:);
+        cons_lb = all_cons_lb(indices>0,:);
+        cons_ub = all_cons_ub(indices>0,:);
+    end
 end
