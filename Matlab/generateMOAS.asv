@@ -4,7 +4,6 @@ function moas = generateMOAS(sys,apx)
 
 % The algorithm includes all constraints until this iteration. This can be
 % used to speed up convergence to t_star
-skip_iter = 100;    
 max_diff = 50;
 
 % Maximum value of t_star the algorithm can converge to. If
@@ -19,9 +18,6 @@ datafile = 'moas.mat';
 
 CX = sys.Cxu(:,1:sys.n);
 CU = sys.Cxu(:,sys.n+1:end);
-% a constraint is non-redundant if either lb or ub is unsatisfied
-
-converged = zeros(length(sys.b_l),1);
 
 options = optimoptions('linprog','display','off');
 
@@ -31,8 +27,7 @@ Meq = -inv(kron(sys.A,eye(apx.s))- ...
 
 % Generate all constraints until max_iter
 all_cons = [];
-all_cons_lb = [];
-all_cons_ub = [];
+tauk = [];
 for k = 0:max_iter
     all_cons = [all_cons;         
             kron(CX,tauk(:,end)')*Meq + kron(CU,tauk(:,end)')];
@@ -51,42 +46,55 @@ t_min = 1;
 t_max = max_iter;
 % Check t_star = max_iter
 time_indices(2:max_iter+1,p) = ones(max_iter,p);
-generateConsSet();
+[cons, cons_lb, cons_ub] = generateConsSet(all_cons, all_cons_lb, all_cons_ub, time_indices);
 
-    [converged,exitflag] = solve_lp(f1,cons,cons_lb,cons_ub,sys.b_l,sys.b_u,options);
-
-while ~all(converged) && t_max-t_min > max_diff
-    
-    f1 = kron(CX,tauk(:,end)')*Meq + kron(CU,tauk(:,end)');            
-    converged = solve_lp(f1,cons,cons_lb,cons_ub,sys.b_l,sys.b_u,options);
-    
-    if all(converged)
-        break
-    else
-        cons = [cons; kron(CX(converged==0,:),tauk(:,end)')*Meq ...
-                        + kron(CU(converged==0,:),tauk(:,end)')];   
-                    
-        cons_lb = [cons_lb; sys.b_l(converged==0,:)];   
-        cons_ub = [cons_ub; sys.b_u(converged==0,:)];
-        
-        j = j+1;       
-        
-        
-        for i = 1:sys.p
-            if ~converged(i)
-                time_indices(j+1,i) = 1;
-            else
-                % store -1 for all those constraints which are redundant
-                time_indices(j+1,i) = -1;
-            end
-            
-        end
-    end
-    
-    tauk = [tauk apx.Md*tauk(:,end)];
+f1 = kron(CX,tauk(:,end)')*Meq + kron(CU,tauk(:,end)');      
+[converged,exitflag] = solve_lp(f1,cons,cons_lb,cons_ub,sys.b_l,sys.b_u,options);
+if exitflag == -2 || exitflag == -4 
+    % infeasible problem
+    error('Infeasibility: Please change the approximation');
+    return;
+elseif exitflag == -3
+    % unbounded problem
+    warning('Unboundedness: Using t_star = max_iter');
+    t_star = max_iter;
+elseif ~all(converged)
+    % t_star > max_iter for the given problem
+    printf('No convergence. t_star = max_iter being used. \n');
+    t_star = max_iter;
 end
 
-t_star = j;
+while t_max-t_min > max_diff
+    % current estimate for t_star
+    t_guess = round((t_max+t_min)/2);
+    
+    % update indices
+    time_indices = update_indices(time_indices,t_max,t_min,t_guess,converged);
+    
+    % generate constraint set
+    [cons, cons_lb, cons_ub] = generateConsSet(all_cons, all_cons_lb, all_cons_ub, time_indices);
+    
+    % objective function
+    f1 = kron(CX,tauk(:,t_guess+1)')*Meq + kron(CU,tauk(:,t_guess+1)');            
+    [converged, exitflag] = solve_lp(f1,cons,cons_lb,cons_ub,sys.b_l,sys.b_u,options);
+    
+    if exitflag == -2 || exitflag == -4 
+        % infeasible problem
+        error('Infeasibility: Please change the approximation');
+    elseif all(converged)
+        % all constraints converged
+        t_star = t_guess;
+        break;
+    else
+        % not all constraints converged, or problem is unbounded
+        % increase t_min
+        t_min = t_guess;
+    end    
+end
+
+if t_max-t_min < max_diff 
+   t_star = t_guess; 
+end
 
 %% change data representation into [eta_x;eta_u] = eta_z
 
@@ -149,13 +157,22 @@ if (save_data)
     save(datafile,'moas')
 end
 
-    function generateConsSet()
-        % get active constraint indices
-        indices = reshape(time_indices,[],1);
-        
-        % build constraint set
-        cons = all_cons(indices>0,:);
-        cons_lb = all_cons_lb(indices>0,:);
-        cons_ub = all_cons_ub(indices>0,:);
-    end
+
+end
+
+%% Function to generate constraint sets 
+function [cons, cons_lb, cons_ub] = generateConsSet(all_cons, all_cons_lb, all_cons_ub, time_indices)
+    % get active constraint indices
+    indices = reshape(time_indices,[],1);
+
+    % build constraint set
+    cons = all_cons(indices>0,:);
+    cons_lb = all_cons_lb(indices>0,:);
+    cons_ub = all_cons_ub(indices>0,:);
+end
+
+%% function to update indices of active constraints
+function time_indices = update_indices(time_indices,t_max,t_min,t_guess,converged)
+    time_indices(t_min+1:t_guess,:) = ones(t_guess-t_min,size(time_indices,2));
+    time_indices(t_guess+1:t_max,:) = zeros(t_max-t_guess,size(time_indices,2));
 end

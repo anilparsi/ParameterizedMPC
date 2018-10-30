@@ -1,3 +1,4 @@
 **/build/
 *.mexw64
 
+*.log

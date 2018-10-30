@@ -23,7 +23,8 @@ UB = -LB;
 clhs = [cons;-cons];
 crhs = [cons_ub;-cons_lb];
 
-    
+ef = zeros(size(lb));
+converged = zeros(size(lb));
 for i = 1:length(lb)
     
     % LP for lb (minimisation problem)
@@ -34,18 +35,28 @@ for i = 1:length(lb)
 
     if exitflag1==-2 || exitflag1== -5 || exitflag2== -2 || exitflag2== -5
         % infeasibile
-        exitflag = -2;        
+        ef(i) = -2;        
     elseif exitflag1==-3 || exitflag2==-3
         % unbounded
-        exitflag = -3;
+        ef(i) = -3;
     elseif exitflag1<0 || exitflag2<0
         % ill conditioned problem
-        exitflag = -4;
+        ef(i) = -4;
     elseif (-fval1 +lb(i))<=-tol && (-fval2-ub(i))<=-tol
         converged(i) = 1;
-    else
-        converged(i) = 0;
+        ef(i) = 1;
     end
+    
+    if all(ef>0)
+       exitflag = 1;
+    elseif any(ef == -2)  || any( ef == -4)
+       exitflag = -2;
+    elseif any(ef == -3)
+       exitflag = -3;
+    else
+       exitflag = 0;
+    end
+    
 end
 
 end
