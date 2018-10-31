@@ -194,9 +194,7 @@ void MPCSolver::checkConstraints_skip(){
 			viol_idx = -idx1;
 		}
 }
-#ifdef DEBUG_SKIP
-	eval = 0;
-#endif
+
 
 	// skip constraints loop
 	for(int i = 0; i < t_star; ++i){
@@ -224,17 +222,13 @@ void MPCSolver::checkConstraints_skip(){
 						max_error = est_lbErr[k];
 						viol_idx = -idx1;
 					}
-#ifdef DEBUG_SKIP
-	++eval;
-#endif
+
 				}
 							
 			}
 		}
 	}
-#ifdef DEBUG_SKIP
-	printf("%d constraints were evaluated \n", eval);
-#endif
+
 	
 	viol = (max_error>TOL);
 		

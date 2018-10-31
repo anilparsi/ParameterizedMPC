@@ -10,17 +10,6 @@
 #include <iostream>
 #include <algorithm>
 
-#ifdef TIME
-	real_t	tchkStart, tchkTot;
-	real_t titStart, titTot=0.0;
-	int_t it_count;
-#endif
-
-	
-#ifdef DEBUG_SKIP
-	int_t eval;
-#endif
-
 QPSolver::QPSolver(std::string dir){
 	// Constructor: Load matrices from directory
 	{
@@ -178,22 +167,10 @@ void QPSolver::solve(){
 
 		if(Utils::anyPositive(lambda,activeCons->getActiveSetSize())){
 			// positive lagrange multiplier: must be removed from active set
-#ifdef TIME
-	titStart = Utils::getCPUtime();
-#endif
 			activeSetIterations();
-#ifdef TIME
-	titTot += Utils::getCPUtime()-titStart;
-#endif
 		}
 
-#ifdef TIME
-	tchkStart = Utils::getCPUtime();
-#endif	
 		checkConstraints();
-#ifdef TIME
-	tchkTot += Utils::getCPUtime()-tchkStart;
-#endif
 		if (viol)
 		{	
 			addConstraint(viol_idx);
@@ -399,9 +376,6 @@ void QPSolver::activeSetIterations(const int_t extra_idx){
 		++ac_iter;
 		
 	}
-#ifdef TIME
-	it_count+=ac_iter;
-#endif		
 	if (ac_iter == MAXITER) {	
 		// Max Iterations Reached within primal active set
 		exitFlag = -2;
@@ -463,13 +437,7 @@ void QPSolver::addConstraint(const int_t viol_idx){
 
 			}else if(Utils::anyPositive(lambda,t_nac)){
 				// Perform iterations with one extra constraint!!
-#ifdef TIME
-	titStart = Utils::getCPUtime();
-#endif
 				activeSetIterations(temp_out_idx);
-#ifdef TIME
-	titTot += Utils::getCPUtime()-titStart;
-#endif
 				break;
 			}else{
 				// removed constraint successfully

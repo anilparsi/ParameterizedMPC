@@ -6,30 +6,11 @@
 
 #include <string>
 
-#ifdef TIME
-	extern real_t tqpTot;
-	extern real_t tqpStart;
-	extern real_t tupTot;
-	extern real_t tupStart;
-	extern real_t tdwnTot;
-	extern real_t tdwnStart;
-	extern real_t tdwnTot;
-	extern real_t tdwnStart;
-	extern real_t tchkTot;
-	extern real_t tchkStart;
-	extern real_t titTot;
-	extern real_t titStart;
-	extern int_t it_count;
-#endif
 
 // Check implementation of parameterized MPC 
 /*
 int main(){
 	
-#ifdef TIME
-	real_t tstart,tqpStart,tqpTot=0.0;
-	tstart=Utils::getCPUtime();
-#endif
 	real_t *A,*B;
 	int_t n,m,temp;
 	std::string dir = "Data/MPCmat";
@@ -65,27 +46,12 @@ int main(){
 
 	// simulate for tmax;
 	for(int i=1; i<tmax-1;++i){	
-#ifdef TIME
-	tqpStart = Utils::getCPUtime();
-#endif
 		pmpc.solve(&x[n*i]);	
 		pmpc.getControlInputs(&u[m*i]);
-#ifdef TIME
-	tqpTot += Utils::getCPUtime()-tqpStart;
-#endif
 		Utils::MatrixMult(A,&x[n*i],Ax,n,n,1);
 		Utils::MatrixMult(B,&u[m*i],Bu,n,m,1);
 		Utils::VectorAdd(Ax,Bu,&x[n*(i+1)],n);
 	}
-	
-#ifdef TIME
-	tstart=Utils::getCPUtime()-tstart;
-	printf("\nexec time: %.5f",tstart);
-	printf("\nQP solve time: %.5f",tqpTot);
-	printf("\niteration time: %.5f, iteration count %d",titTot,it_count);
-	
-	printf("\n\ncons check time: %.5f",tchkTot);
-#endif
 
 
 	delete[] x;

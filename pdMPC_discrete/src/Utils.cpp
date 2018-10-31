@@ -1,6 +1,5 @@
 #include "Utils.h"
 #include <stdio.h>
-#include <windows.h>
 #include <cassert>
 
 
@@ -246,18 +245,6 @@ int_t Utils::readFromFile(real_t* data, int_t nrow, int_t ncol, const char* data
 		fclose( datafile );
 
 		return -1;
-}
-
-
-real_t Utils::getCPUtime(){
-	real_t current_time = -1.0;
-
-	_LARGE_INTEGER counter, frequency;
-	QueryPerformanceFrequency(&frequency);
-	QueryPerformanceCounter(&counter);
-	current_time = ((real_t) counter.QuadPart) / ((real_t) frequency.QuadPart);
-	
-	return current_time;
 }
 
 	// Multiplies two matrices A and B (matrices stored row wise)
