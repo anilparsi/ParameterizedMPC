@@ -14,7 +14,6 @@ apx.alpha = 0.7;
 % apx.s     = floor(sys.n/sys.m)*2;                  % min s: n/m    
 apx.s     = 9;    
 
-apx.Ts    = 0.02;
 %% Derived variables
 if apx.s <= floor(sys.n/sys.m)
     error('Increase number of basis functions')
@@ -25,7 +24,7 @@ tau0c = sqrt(2*apx.alpha)*ones(apx.s,1);
 Mc    = -2*apx.alpha*tril(ones(apx.s))+apx.alpha*eye(apx.s);
 
 % obtain the discretized version by taking the matrix exponential
-apx.Md = expm(Mc*apx.Ts); 
+apx.Md = expm(Mc*sys.Ts); 
 
 % orthonormalize to obtain discrete-time basis functions
 P     = dlyap(apx.Md,tau0c*tau0c');
