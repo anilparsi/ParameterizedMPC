@@ -1,4 +1,4 @@
-function handle = generateMatrices(moas)
+function handle = generateSolver(moas)
 % This function generates all the matrices required for the C++ implementation 
 % of the problem and initializes the parameterized MPC solver.
 %% User defined settings for parameterized MPC
