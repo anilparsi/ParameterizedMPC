@@ -19,15 +19,15 @@ Ac = [0,1,0,0;
       0,0,1,0;
       0,0,0,1;
       0,0,0,0];
-Bc=[0;0;0;1;];
+Bc = [0;0;0;1;];
 
 % constraints: b_l <= Cxu * [x(k);u(k)] <= b_u
 % constraints which involve only input variables must be at the bottom of
 % the Cxu matrix 
-sys.Cxu = [1 1 1 1 0
+sys.Cxu = [1 0 0 0 0
            0 0 0 0 1];   
 sys.b_l = [-.1; -0.5];
-sys.b_u = [10; 0.5,];
+sys.b_u = [10; 0.5];
 
 
 % cost matrices: cost(k) =  x(k)^T Q x(k) + u(k)^T R u(k)

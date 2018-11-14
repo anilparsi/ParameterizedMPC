@@ -11,7 +11,7 @@ apx = defineApproximation(sys);
 moas = generateMOAS(sys,apx);
 
 %% set-up the parameterized MPC solver
-handle = generateMatrices(moas);
+handle = generateSolver(moas);
 
 %% Closed Loop Simulation
 
