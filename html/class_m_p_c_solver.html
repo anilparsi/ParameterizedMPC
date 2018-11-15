@@ -68,21 +68,24 @@ $(function() {
 <div class="title">MPCSolver Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class is be used to solve the QP problems encountered in parameterized model predictive control (pdMPC).  
+ <a href="class_m_p_c_solver.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_m_p_c_solver_8h_source.html">MPCSolver.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MPCSolver:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_m_p_c_solver.png" usemap="#MPCSolver_map" alt=""/>
   <map id="MPCSolver_map" name="MPCSolver_map">
-<area href="class_q_p_solver.html" alt="QPSolver" shape="rect" coords="0,0,77,24"/>
+<area href="class_q_p_solver.html" title="Solve quadratic programming problems using active set approach. " alt="QPSolver" shape="rect" coords="0,0,77,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa67035a19046fc57c1415b6e16be4ffc"><td class="memItemLeft" align="right" valign="top"><a id="aa67035a19046fc57c1415b6e16be4ffc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_c_solver.html#aa67035a19046fc57c1415b6e16be4ffc">MPCSolver</a> (std::string dir)</td></tr>
-<tr class="memdesc:aa67035a19046fc57c1415b6e16be4ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="memitem:aa67035a19046fc57c1415b6e16be4ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_c_solver.html#aa67035a19046fc57c1415b6e16be4ffc">MPCSolver</a> (std::string dir)</td></tr>
 <tr class="separator:aa67035a19046fc57c1415b6e16be4ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6d7ab59550b8a253e4b32025c4c8d33"><td class="memItemLeft" align="right" valign="top"><a id="af6d7ab59550b8a253e4b32025c4c8d33"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_c_solver.html#af6d7ab59550b8a253e4b32025c4c8d33">~MPCSolver</a> ()</td></tr>
@@ -94,11 +97,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:acd9e45b549ea01b900f3b57edac2bf7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb7b63152716630745b18cf517ff4d15"><td class="memItemLeft" align="right" valign="top"><a id="abb7b63152716630745b18cf517ff4d15"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_c_solver.html#abb7b63152716630745b18cf517ff4d15">getControlInputs</a> (real_t *u_out) const</td></tr>
-<tr class="memdesc:abb7b63152716630745b18cf517ff4d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives control inputs <br /></td></tr>
+<tr class="memdesc:abb7b63152716630745b18cf517ff4d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns control inputs <br /></td></tr>
 <tr class="separator:abb7b63152716630745b18cf517ff4d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9d6cfaaf59c5046614a6d06de6740c3"><td class="memItemLeft" align="right" valign="top"><a id="ad9d6cfaaf59c5046614a6d06de6740c3"></a>
 int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_c_solver.html#ad9d6cfaaf59c5046614a6d06de6740c3">getNumberOfOutputs</a> () const</td></tr>
-<tr class="memdesc:ad9d6cfaaf59c5046614a6d06de6740c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives size of control inputs <br /></td></tr>
+<tr class="memdesc:ad9d6cfaaf59c5046614a6d06de6740c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns size of control inputs <br /></td></tr>
 <tr class="separator:ad9d6cfaaf59c5046614a6d06de6740c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_q_p_solver"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_q_p_solver')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_q_p_solver.html">QPSolver</a></td></tr>
 <tr class="memitem:a5d0cde5344724349e11312e77a79fa97 inherit pub_methods_class_q_p_solver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_p_solver.html#a5d0cde5344724349e11312e77a79fa97">QPSolver</a> (std::string dir)</td></tr>
@@ -213,6 +216,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a8f4a96b2ae71c5ab044f363587f2f991 inherit pro_attribs_class_q_p_solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">violation status <br /></td></tr>
 <tr class="separator:a8f4a96b2ae71c5ab044f363587f2f991 inherit pro_attribs_class_q_p_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class is be used to solve the QP problems encountered in parameterized model predictive control (pdMPC). </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa67035a19046fc57c1415b6e16be4ffc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67035a19046fc57c1415b6e16be4ffc">&#9670;&nbsp;</a></span>MPCSolver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MPCSolver::MPCSolver </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor to implement pdMPC solver with MATLAB interface </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>contains the address of the directory with required matrices to solve the pdMPC problem in .txt files. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>pdMPC_discrete/src/<a class="el" href="_m_p_c_solver_8h_source.html">MPCSolver.h</a></li>
 <li>pdMPC_discrete/src/MPCSolver.cpp</li>

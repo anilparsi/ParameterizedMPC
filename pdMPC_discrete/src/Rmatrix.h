@@ -1,22 +1,32 @@
 #pragma once
 
 #include "DefineSettings.h"
+/*!
+ * \brief This class is used to store the R matrix in the QR decomposition of active set, 
+ * and provides the functions to perform matrix operations on it. 
+ */
 
 class Rmatrix{
 public:
-	// constructor
+	/// constructor
 	Rmatrix(const int_t nz, const int_t *const nac);
 
-	//destructor
+	/// destructor
 	~Rmatrix();
 
+	/// add a column to R matrix
 	void updateR(real_t *const vec1);
+
+	/// remove a column from R matrix
 	void downdateR(const int_t idx);
+	
+	/// returns the value inv(R^T*R)*vec1 in the same vector vec1.
 	void performRTRSubstitution(real_t *const vec1);
 
-	// return flag to indicate if the constraint set is linearly dependent
+	/// return flag to indicate if the constraint set is linearly dependent
 	bool getLD_Flag();
-	// updates Q matrix: Q_new = Q_old*GqT
+
+	/// returns updated Q matrix in the QR decomposition: Q_new = Q_old*GqT
 	void multiplyGqT(real_t *const Q);
 private:
 	// calculate givens coefficients

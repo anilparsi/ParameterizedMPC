@@ -2,8 +2,10 @@
 #include "DefineSettings.h"
 #include "Utils.h"
 #include "Rmatrix.h"
-/// This class contains the indices of constraints which are active.
-/// It is updated whenever the active set is changed
+/*!
+ * \brief This class contains the indices of constraints which are active.
+ * It is updated whenever the active set is changed
+ */
 class ConstraintSet{
 public:
 	/// constructor
@@ -13,9 +15,7 @@ public:
 	}
 
 	/// destructor
-	~ConstraintSet(){
-		
-	}
+	~ConstraintSet(){}
 
 	/// add a constraint index to the set
 	void incrementSet(const int_t viol_idx){
@@ -52,10 +52,13 @@ private:
 
 };
 
-/// This class performs matrix operations involving the active set. 
-/// Constraints can be added and removed from the active set, and the active set matrix can be multiplied with vectors.
-/// W is the matrix containing the active constraints' coefficients
-/// w is the vector containing the active bounds on these constraints
+/*! 
+ *  \brief This class performs matrix operations involving the active set. 
+ * 
+ *  Constraints can be added and removed from the active set, and the active set matrix can be multiplied with vectors.
+ *  W is the matrix containing the active constraints' coefficients
+ *  w is the vector containing the active bounds on these constraints
+ */
 class ActiveConstraints{
 	// Li*W^T = Q*R is the way in which it is stored
 
@@ -76,7 +79,7 @@ public:
 	/// add vector w to vec1
 	void add_w_vector(const real_t *vec1, real_t *const vec2) const;
 	
-	/// vec1 = (R'*R)\vec1;
+	/// vec1 = inv(R'*R)*vec1;
 	void performRTRSub(real_t *const vec1){
 		Rmat->performRTRSubstitution(vec1);
 	};

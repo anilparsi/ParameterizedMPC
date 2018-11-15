@@ -70,6 +70,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>This class performs matrix operations involving the active set.  
+ <a href="class_active_constraints.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_active_constraints_8h_source.html">ActiveConstraints.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -96,7 +99,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:acf548664bd491802a0486a6510cd7050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9747c8c55422f7ce38ce7d98fab2ead"><td class="memItemLeft" align="right" valign="top"><a id="ad9747c8c55422f7ce38ce7d98fab2ead"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#ad9747c8c55422f7ce38ce7d98fab2ead">performRTRSub</a> (real_t *const vec1)</td></tr>
-<tr class="memdesc:ad9747c8c55422f7ce38ce7d98fab2ead"><td class="mdescLeft">&#160;</td><td class="mdescRight">vec1 = (R'*R); <br /></td></tr>
+<tr class="memdesc:ad9747c8c55422f7ce38ce7d98fab2ead"><td class="mdescLeft">&#160;</td><td class="mdescRight">vec1 = inv(R'*R)*vec1; <br /></td></tr>
 <tr class="separator:ad9747c8c55422f7ce38ce7d98fab2ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7559160234206d92a800dfc1f51320f"><td class="memItemLeft" align="right" valign="top"><a id="ad7559160234206d92a800dfc1f51320f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#ad7559160234206d92a800dfc1f51320f">removeConstraint</a> (const int_t idx)</td></tr>
@@ -162,7 +165,8 @@ real_t *&#160;</td><td class="memItemRight" valign="bottom"><b>m_temp_nz2</b></t
 <tr class="separator:a06dd6011ec62b83b9f6bb309c4ee1e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class performs matrix operations involving the active set. Constraints can be added and removed from the active set, and the active set matrix can be multiplied with vectors. W is the matrix containing the active constraints' coefficients w is the vector containing the active bounds on these constraints </p>
+<div class="textblock"><p>This class performs matrix operations involving the active set. </p>
+<p>Constraints can be added and removed from the active set, and the active set matrix can be multiplied with vectors. W is the matrix containing the active constraints' coefficients w is the vector containing the active bounds on these constraints </p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>pdMPC_discrete/src/<a class="el" href="_active_constraints_8h_source.html">ActiveConstraints.h</a></li>
 <li>pdMPC_discrete/src/ActiveConstraints.cpp</li>

@@ -1,9 +1,18 @@
 #pragma once
 
 #include "QPSolver.h"
+/*! \class MPCSolver
+ * \brief This class is be used to solve the QP problems encountered in parameterized 
+ * model predictive control (pdMPC).
+ * 
+ */
 class MPCSolver: public QPSolver{
-public:
-	/// Default constructor
+public:  
+	/*!
+	 * Constructor to implement pdMPC solver with MATLAB interface
+	 * \param dir contains the address of the directory with required matrices to solve the pdMPC problem
+	 * in .txt files.
+	 */
 	MPCSolver(std::string dir);
 
 	/// destructor
@@ -12,12 +21,15 @@ public:
 	/// update implementation of solve
 	void	solve(const real_t *const x_IC);
 	
-	/// gives control inputs
+	/// returns control inputs
 	void	getControlInputs(real_t *u_out) const;
 
-	/// gives size of control inputs
+	/// returns size of control inputs
 	int_t	getNumberOfOutputs() const {return m;}
 private:
+	/*!
+	 * Updates the QP which has to be solved based on the current state of the system.
+	 */
 	void	updateMPCProblem(const real_t *const x_IC);
 
 	/// update implementation of check constraints

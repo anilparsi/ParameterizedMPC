@@ -4,7 +4,7 @@
 #include "ActiveConstraints.h"
 
 /*! \class QPSolver
- * Solve quadratic programming problems using active set approach.
+ * \brief Solve quadratic programming problems using active set approach.
  *
  * QP formulation:
  *	min		0.5 z^T G z + g^T z
@@ -21,7 +21,8 @@ public:
 	 * \brief Constructor to use MATLAB interface
 	 * 
 	 * Constructor to use the QPSolver object with MATLAB
-	 * \param dir is the directory containing the matrices Li, g, lbineq, AiZ, ubineq in .txt files.
+	 * \param dir contains the address of the directory with the matrices Li, g, lbineq,
+	 * AiZ, ubineq in .txt files.
 	 */
 	QPSolver(std::string dir);
 
@@ -38,7 +39,7 @@ public:
 	 * \param nc_i is the number of constraints nc
 	 * \param tolMin_i is the minimum tolerance used in the active set method. This is the default tolerance initially used by the active set solver.
 	 * \param tolMax_i is the maximum tolerance used in the active set method. The tolerance is increased to this value after iterRelax_i iterations are performed.
-	 * \param MAXITER_i is the maximum number of iterations MAXITER
+	 * \param MAXITER_i is the maximum number of iterations in the active set method
 	 * \param iterRelax_i is the number of iterations after which the tolerance is relaxed
 	 */
 	QPSolver(const real_t*const Li_i, const real_t*const g_i, const real_t*const Aineq_i,

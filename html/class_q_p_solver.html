@@ -71,6 +71,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Solve quadratic programming problems using active set approach.  
+ <a href="class_q_p_solver.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_q_p_solver_8h_source.html">QPSolver.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for QPSolver:</div>
@@ -78,7 +81,7 @@ Inheritance diagram for QPSolver:</div>
  <div class="center">
   <img src="class_q_p_solver.png" usemap="#QPSolver_map" alt=""/>
   <map id="QPSolver_map" name="QPSolver_map">
-<area href="class_m_p_c_solver.html" alt="MPCSolver" shape="rect" coords="0,56,77,80"/>
+<area href="class_m_p_c_solver.html" title="This class is be used to solve the QP problems encountered in parameterized model predictive control ..." alt="MPCSolver" shape="rect" coords="0,56,77,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -202,7 +205,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a8f4a96b2ae71c5ab044f363587f2f991"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Solve quadratic programming problems using active set approach.</p>
+<div class="textblock"><p>Solve quadratic programming problems using active set approach. </p>
 <p>QP formulation: min 0.5 z^T G z + g^T z s.t lbineq &lt;= AiZ z &lt;= ubineq</p>
 <p>The matrix G is specified in terms of the inverse of its Cholesky decomposition (Li): G = LL^T Li = inv(L) </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -223,9 +226,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 
 <p>Constructor to use MATLAB interface. </p>
-<p>Constructor to use the <a class="el" href="class_q_p_solver.html">QPSolver</a> object with MATLAB </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructor to use the <a class="el" href="class_q_p_solver.html" title="Solve quadratic programming problems using active set approach. ">QPSolver</a> object with MATLAB </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dir</td><td>is the directory containing the matrices Li, g, lbineq, AiZ, ubineq in .txt files. </td></tr>
+    <tr><td class="paramname">dir</td><td>contains the address of the directory with the matrices Li, g, lbineq, AiZ, ubineq in .txt files. </td></tr>
   </table>
   </dd>
 </dl>
@@ -313,7 +316,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 
 <p>Constructor for C++ interface. </p>
-<p>Constructor to use the <a class="el" href="class_q_p_solver.html">QPSolver</a> object with C++ </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructor to use the <a class="el" href="class_q_p_solver.html" title="Solve quadratic programming problems using active set approach. ">QPSolver</a> object with C++ </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Li_i</td><td>is the matrix containing Li </td></tr>
     <tr><td class="paramname">g_i</td><td>is the matrix containing g </td></tr>
@@ -324,7 +327,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
     <tr><td class="paramname">nc_i</td><td>is the number of constraints nc </td></tr>
     <tr><td class="paramname">tolMin_i</td><td>is the minimum tolerance used in the active set method. This is the default tolerance initially used by the active set solver. </td></tr>
     <tr><td class="paramname">tolMax_i</td><td>is the maximum tolerance used in the active set method. The tolerance is increased to this value after iterRelax_i iterations are performed. </td></tr>
-    <tr><td class="paramname">MAXITER_i</td><td>is the maximum number of iterations MAXITER </td></tr>
+    <tr><td class="paramname">MAXITER_i</td><td>is the maximum number of iterations in the active set method </td></tr>
     <tr><td class="paramname">iterRelax_i</td><td>is the number of iterations after which the tolerance is relaxed </td></tr>
   </table>
   </dd>
