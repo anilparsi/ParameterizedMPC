@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['temp_5fnz',['temp_nz',['../class_q_p_solver.html#a8e9f2412a2e64f84178346ab78d76b60',1,'QPSolver']]],
-  ['temp_5fnz2',['temp_nz2',['../class_q_p_solver.html#a2229539a9b4247cb2f8be3db4704975f',1,'QPSolver']]],
-  ['tol',['TOL',['../class_q_p_solver.html#ab6c701e334122169a9f8f8e14dfdd36d',1,'QPSolver']]],
-  ['tolmax',['tolMax',['../class_q_p_solver.html#a7fa7238d0fcee2daa0f6a72aeb7c2219',1,'QPSolver']]],
-  ['tolmin',['tolMin',['../class_q_p_solver.html#a056fe666a182f6a5984378549e5ccd0a',1,'QPSolver']]]
+  ['readfromfile',['readFromFile',['../class_utils.html#af1e88b19ffcfa5de60af7910babd240a',1,'Utils::readFromFile(int_t *data, int_t n, const char *datafilename)'],['../class_utils.html#a41b882ce5067e41ec72c3f8dbe71c205',1,'Utils::readFromFile(real_t *data, int_t n, const char *datafilename)']]],
+  ['removeconstraint',['removeConstraint',['../class_active_constraints.html#ad7559160234206d92a800dfc1f51320f',1,'ActiveConstraints']]],
+  ['resetactiveset',['resetActiveSet',['../class_active_constraints.html#a098f02f76d7ce079618bfe99e5e8cd20',1,'ActiveConstraints']]],
+  ['rmat',['Rmat',['../class_active_constraints.html#a1c0f897495e11572619511c6062f3e00',1,'ActiveConstraints']]],
+  ['rmatrix',['Rmatrix',['../class_rmatrix.html',1,'Rmatrix'],['../class_rmatrix.html#a37968b114eb96395ce2cc1843b714467',1,'Rmatrix::Rmatrix()']]]
 ];

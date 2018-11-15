@@ -5,7 +5,6 @@
  * \brief This class is used to store the R matrix in the QR decomposition of active set, 
  * and provides the functions to perform matrix operations on it. 
  */
-
 class Rmatrix{
 public:
 	/// constructor
@@ -14,10 +13,16 @@ public:
 	/// destructor
 	~Rmatrix();
 
-	/// add a column to R matrix
+	/* \brief add a column to R matrix
+	 *
+	 * \param vec1 is a pointer to the column to be added
+	 */
 	void updateR(real_t *const vec1);
 
-	/// remove a column from R matrix
+	/* \brief remove a column from R matrix
+	 *
+	 * \param idx is the index of the column to be removed
+	 */
 	void downdateR(const int_t idx);
 	
 	/// returns the value inv(R^T*R)*vec1 in the same vector vec1.
@@ -26,7 +31,12 @@ public:
 	/// return flag to indicate if the constraint set is linearly dependent
 	bool getLD_Flag();
 
-	/// returns updated Q matrix in the QR decomposition: Q_new = Q_old*GqT
+	/* \brief multiplies the input matrix with Gq^T
+	 * 
+	 * This is used to update the Q matrix in the QR decomposition. Whenever
+	 * a column is added or removed from the active set, this is called so that
+	 * the Q matrix can be updated along with the R matrix
+	 */
 	void multiplyGqT(real_t *const Q);
 private:
 	// calculate givens coefficients

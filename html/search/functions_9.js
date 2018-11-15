@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['solve',['solve',['../class_m_p_c_solver.html#acd9e45b549ea01b900f3b57edac2bf7c',1,'MPCSolver::solve()'],['../class_q_p_solver.html#aaae3e6707169df5ccdc3c6efcaded6aa',1,'QPSolver::solve()']]]
+  ['performrtrsub',['performRTRSub',['../class_active_constraints.html#ad9747c8c55422f7ce38ce7d98fab2ead',1,'ActiveConstraints']]],
+  ['performrtrsubstitution',['performRTRSubstitution',['../class_rmatrix.html#a26a1046c7eeddcfdb0fbcb1e827c8155',1,'Rmatrix']]]
 ];

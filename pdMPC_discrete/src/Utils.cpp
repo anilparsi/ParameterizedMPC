@@ -3,40 +3,6 @@
 #include <cassert>
 
 
-void Utils::LoadSparseMatrixRowPlain(const char* str,int_t*& row_ptr, int_t*& col_idx, real_t*& val,
-								int_t& nr, int_t& nc, int_t& nnz){
-		std::string filename_base=str;
-		filename_base.append("_n.txt");
-
-		int_t size[4];
-		readFromFile(size,4,filename_base.c_str());
-		
-		nr=size[0];
-		nc=size[1];
-		int_t row_ptr_length=size[2];
-		nnz=size[3];
-
-		// read column pointer
-		filename_base=str;
-		filename_base.append("_ia.txt");
-		row_ptr=new int_t[row_ptr_length];
-		readFromFile(row_ptr,row_ptr_length,filename_base.c_str());
-
-
-		// read row indices
-		filename_base=str;
-		filename_base.append("_ja.txt");
-		col_idx=new int_t[nnz];
-		readFromFile(col_idx,nnz,filename_base.c_str());
-
-
-		filename_base=str;
-		filename_base.append("_ra.txt");
-		val=new real_t[nnz];
-		readFromFile(val,nnz,filename_base.c_str());
-
-	}
-
 void Utils::LoadVec(const char* str, real_t** vec, int_t& nv){
 		std::string filename_base=str;
 		filename_base.append(".txt");
@@ -75,42 +41,6 @@ void Utils::LoadVec(const char* str, int_t** vec, int_t& nv){
 		}
 
 		delete [] tmp;
-	}
-
-void Utils::PrintVec(const real_t* v, int_t nv){
-		for(int_t k=0;k<nv;++k){
-			printf("%f\n",v[k]);
-		}
-	}
-
-void Utils::PrintVec(const int_t* v, int_t nv){
-		for(int_t k=0;k<nv;++k){
-			printf("%i\n",v[k]);
-		}
-	}
-
-// modified definition and parameter order: Anil Parsi
-void Utils::PrintMat(const real_t* val, int_t nr, int_t nc){
-		for(int_t j=0;j<nr;++j){
-			for(int_t k=0;k<nc;++k){
-				printf("%f\t",val[k*nr+j]);
-			}
-			printf("\n");
-		}
-	}
-
-
-	// Important; The function assumes that col_idx is sorted (ascending)!
-	// Moreover, col_ptr must be an array of lenght nCols+1 (already initialized).
-void Utils::ConvertCOSToCCS(const int_t* col_idx, const int_t& nnZ,int_t* col_ptr){
-		int_t oldCol=0;
-		col_ptr[0]=0;
-		for(int_t k=0;k<nnZ;++k){
-			while(oldCol!=col_idx[k]){
-				col_ptr[++oldCol]=k;
-			}
-		}
-		col_ptr[oldCol+1]=nnZ;
 	}
 
 void Utils::DotProduct(const real_t* a, const real_t* b, const int& n, real_t& res){
@@ -171,11 +101,6 @@ void Utils::VectorMult(const real_t* a, const real_t* b, real_t* c, int_t n){
 	}
 
 
-int_t Utils::factorial(int_t n){
-		return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
-	}
-
-
 
 	/*
 	 *	r e a d F r o m F i l e
@@ -213,40 +138,6 @@ int_t Utils::readFromFile(int_t* data, int_t n, const char* datafilename){
 	}
 
 	
-	/*
-	*	This definition is never directly used: called with one column from above. 
-	*/
-int_t Utils::readFromFile(real_t* data, int_t nrow, int_t ncol, const char* datafilename){
-		int_t i, j;
-		real_t float_data;
-		FILE* datafile;
-
-		if ( ( datafile = fopen( datafilename, "r" ) ) == 0 )
-		{
-			printf("\n\runable to read file %s\n",datafilename);
-			return -1;
-		}
-
-		for( i=0; i<nrow; ++i )
-		{
-			for( j=0; j<ncol; ++j )
-			{
-				
-				if ( fscanf( datafile, "%lf ", &float_data ) == 0 )
-				{
-					fclose( datafile );
-					printf("\n\runable to read file %s\n",datafilename);
-					return -1;
-				}
-				data[i*ncol + j] = ( (real_t) float_data );
-			}
-		}
-
-		fclose( datafile );
-
-		return -1;
-}
-
 	// Multiplies two matrices A and B (matrices stored row wise)
 void Utils::MatrixMult(const real_t* matA, const real_t* matB, real_t* matC, \
 						const int_t rowsA, const int_t colsA, const int_t colsB){

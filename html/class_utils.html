@@ -68,124 +68,236 @@ $(function() {
 <div class="title">Utils Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class contains all the utilites used for the toolbox.  
+ <a href="class_utils.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_utils_8h_source.html">Utils.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa5766e7c10bb08b83d9bf5f361e6b26d"><td class="memItemLeft" align="right" valign="top"><a id="aa5766e7c10bb08b83d9bf5f361e6b26d"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadSparseMatrixRowPlain</b> (const char *str, int_t *&amp;row_ptr, int_t *&amp;col_idx, real_t *&amp;val, int_t &amp;nr, int_t &amp;nc, int_t &amp;nnz)</td></tr>
-<tr class="separator:aa5766e7c10bb08b83d9bf5f361e6b26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a775b3095c46f7843ab372cebe8e3bb53"><td class="memItemLeft" align="right" valign="top"><a id="a775b3095c46f7843ab372cebe8e3bb53"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadVec</b> (const char *str, real_t **vec, int_t &amp;nv)</td></tr>
+<tr class="memitem:a775b3095c46f7843ab372cebe8e3bb53"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a775b3095c46f7843ab372cebe8e3bb53">LoadVec</a> (const char *str, real_t **vec, int_t &amp;nv)</td></tr>
+<tr class="memdesc:a775b3095c46f7843ab372cebe8e3bb53"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to load data from .txt files  <a href="#a775b3095c46f7843ab372cebe8e3bb53">More...</a><br /></td></tr>
 <tr class="separator:a775b3095c46f7843ab372cebe8e3bb53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae426f40f3bf3e106c277dc4d58ebf046"><td class="memItemLeft" align="right" valign="top"><a id="ae426f40f3bf3e106c277dc4d58ebf046"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadVec</b> (const char *str, int_t **vec, int_t &amp;nv)</td></tr>
+<tr class="memitem:ae426f40f3bf3e106c277dc4d58ebf046"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#ae426f40f3bf3e106c277dc4d58ebf046">LoadVec</a> (const char *str, int_t **vec, int_t &amp;nv)</td></tr>
+<tr class="memdesc:ae426f40f3bf3e106c277dc4d58ebf046"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to load data from .txt files  <a href="#ae426f40f3bf3e106c277dc4d58ebf046">More...</a><br /></td></tr>
 <tr class="separator:ae426f40f3bf3e106c277dc4d58ebf046"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedd5ae5491bc822ea7f31b30e48b90c8"><td class="memItemLeft" align="right" valign="top"><a id="aedd5ae5491bc822ea7f31b30e48b90c8"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>PrintVec</b> (const real_t *v, int_t nv)</td></tr>
-<tr class="separator:aedd5ae5491bc822ea7f31b30e48b90c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8680d4d94aee2f7814f10e9bb01c9bc1"><td class="memItemLeft" align="right" valign="top"><a id="a8680d4d94aee2f7814f10e9bb01c9bc1"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>PrintVec</b> (const int_t *v, int_t nv)</td></tr>
-<tr class="separator:a8680d4d94aee2f7814f10e9bb01c9bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a253160d308a9388d6f95953544beea13"><td class="memItemLeft" align="right" valign="top"><a id="a253160d308a9388d6f95953544beea13"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>PrintMat</b> (const real_t *v, int_t nc, int_t nr)</td></tr>
-<tr class="separator:a253160d308a9388d6f95953544beea13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f244848823a09ed795a1e2e7650e21a"><td class="memItemLeft" align="right" valign="top"><a id="a2f244848823a09ed795a1e2e7650e21a"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertCOSToCCS</b> (const int_t *col_idx, const int_t &amp;nnZ, int_t *col_ptr)</td></tr>
-<tr class="separator:a2f244848823a09ed795a1e2e7650e21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef99d96698c92445b81531acab4d2f91"><td class="memItemLeft" align="right" valign="top"><a id="aef99d96698c92445b81531acab4d2f91"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>DotProduct</b> (const real_t *a, const real_t *b, const int &amp;n, real_t &amp;res)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#aef99d96698c92445b81531acab4d2f91">DotProduct</a> (const real_t *a, const real_t *b, const int &amp;n, real_t &amp;res)</td></tr>
+<tr class="memdesc:aef99d96698c92445b81531acab4d2f91"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs dot product a.b = res, where a and b are n-dimensional <br /></td></tr>
 <tr class="separator:aef99d96698c92445b81531acab4d2f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a685d6e45c1b5fae40a5bc5133e8226dc"><td class="memItemLeft" align="right" valign="top"><a id="a685d6e45c1b5fae40a5bc5133e8226dc"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>VectorAdd</b> (const real_t *a, const real_t *b, real_t *c, int_t n)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a685d6e45c1b5fae40a5bc5133e8226dc">VectorAdd</a> (const real_t *a, const real_t *b, real_t *c, int_t n)</td></tr>
+<tr class="memdesc:a685d6e45c1b5fae40a5bc5133e8226dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">implements a+b=c, where a,b,c are n-dimensional <br /></td></tr>
 <tr class="separator:a685d6e45c1b5fae40a5bc5133e8226dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e3aea2c485e0fa00a4e90cd1b0fbfad"><td class="memItemLeft" align="right" valign="top"><a id="a9e3aea2c485e0fa00a4e90cd1b0fbfad"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>VectorSubstract</b> (const real_t *a, const real_t *b, real_t *c, int_t n)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a9e3aea2c485e0fa00a4e90cd1b0fbfad">VectorSubstract</a> (const real_t *a, const real_t *b, real_t *c, int_t n)</td></tr>
+<tr class="memdesc:a9e3aea2c485e0fa00a4e90cd1b0fbfad"><td class="mdescLeft">&#160;</td><td class="mdescRight">implements a-b=c, where a,b,c, are n-dimensional <br /></td></tr>
 <tr class="separator:a9e3aea2c485e0fa00a4e90cd1b0fbfad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12a74c5c3ea1d88f6f95c5b7596cc0fc"><td class="memItemLeft" align="right" valign="top"><a id="a12a74c5c3ea1d88f6f95c5b7596cc0fc"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>VectorAddMultiply</b> (const real_t *a, real_t alpha, const real_t *b, real_t beta, real_t *c, int_t n)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a12a74c5c3ea1d88f6f95c5b7596cc0fc">VectorAddMultiply</a> (const real_t *a, real_t alpha, const real_t *b, real_t beta, real_t *c, int_t n)</td></tr>
+<tr class="memdesc:a12a74c5c3ea1d88f6f95c5b7596cc0fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">implements a*alpha+b*beta=c, where a,b,c are n-dimensional, and alpha and beta are scalars. <br /></td></tr>
 <tr class="separator:a12a74c5c3ea1d88f6f95c5b7596cc0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5958b04ab90b58cffd10b98845ffc57f"><td class="memItemLeft" align="right" valign="top"><a id="a5958b04ab90b58cffd10b98845ffc57f"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>VectorCopy</b> (const real_t *a, real_t *b, int_t n)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a5958b04ab90b58cffd10b98845ffc57f">VectorCopy</a> (const real_t *a, real_t *b, int_t n)</td></tr>
+<tr class="memdesc:a5958b04ab90b58cffd10b98845ffc57f"><td class="mdescLeft">&#160;</td><td class="mdescRight">implements b=a <br /></td></tr>
 <tr class="separator:a5958b04ab90b58cffd10b98845ffc57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f51636ab28a43c2be4938d7dc9b0b20"><td class="memItemLeft" align="right" valign="top"><a id="a7f51636ab28a43c2be4938d7dc9b0b20"></a>
-static real_t&#160;</td><td class="memItemRight" valign="bottom"><b>VectorNorm</b> (const real_t *a, int_t n)</td></tr>
+static real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a7f51636ab28a43c2be4938d7dc9b0b20">VectorNorm</a> (const real_t *a, int_t n)</td></tr>
+<tr class="memdesc:a7f51636ab28a43c2be4938d7dc9b0b20"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the 2-norm of the vector a which is n dimensional <br /></td></tr>
 <tr class="separator:a7f51636ab28a43c2be4938d7dc9b0b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a5a0e1cdc601b8d836f59d6f6ecc7dc"><td class="memItemLeft" align="right" valign="top"><a id="a9a5a0e1cdc601b8d836f59d6f6ecc7dc"></a>
-static real_t&#160;</td><td class="memItemRight" valign="bottom"><b>VectorNormDiff</b> (const real_t *a, const real_t *b, int_t n)</td></tr>
+static real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a9a5a0e1cdc601b8d836f59d6f6ecc7dc">VectorNormDiff</a> (const real_t *a, const real_t *b, int_t n)</td></tr>
+<tr class="memdesc:a9a5a0e1cdc601b8d836f59d6f6ecc7dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns ||a-b||_2 <br /></td></tr>
 <tr class="separator:a9a5a0e1cdc601b8d836f59d6f6ecc7dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0d865c49172eaecacc52c414c410344"><td class="memItemLeft" align="right" valign="top"><a id="ad0d865c49172eaecacc52c414c410344"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>VectorMult</b> (const real_t *a, const real_t *b, real_t *c, int_t n)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#ad0d865c49172eaecacc52c414c410344">VectorMult</a> (const real_t *a, const real_t *b, real_t *c, int_t n)</td></tr>
+<tr class="memdesc:ad0d865c49172eaecacc52c414c410344"><td class="mdescLeft">&#160;</td><td class="mdescRight">component wise multiplication of the vectors a and b <br /></td></tr>
 <tr class="separator:ad0d865c49172eaecacc52c414c410344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f2cc246f261c8f7fe1daa4081205a68"><td class="memItemLeft" align="right" valign="top"><a id="a1f2cc246f261c8f7fe1daa4081205a68"></a>
-static int_t&#160;</td><td class="memItemRight" valign="bottom"><b>factorial</b> (int_t n)</td></tr>
-<tr class="separator:a1f2cc246f261c8f7fe1daa4081205a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d67e99294cdd6be174d438f850b8f1a"><td class="memItemLeft" align="right" valign="top"><a id="a6d67e99294cdd6be174d438f850b8f1a"></a>
-static int_t&#160;</td><td class="memItemRight" valign="bottom"><b>isZero</b> (const real_t &amp;a, const real_t &amp;tresh)</td></tr>
-<tr class="separator:a6d67e99294cdd6be174d438f850b8f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abee1742a6f723a8730d422add764cf2d"><td class="memItemLeft" align="right" valign="top"><a id="abee1742a6f723a8730d422add764cf2d"></a>
-static real_t&#160;</td><td class="memItemRight" valign="bottom"><b>getSqrt</b> (const real_t &amp;a)</td></tr>
+static real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#abee1742a6f723a8730d422add764cf2d">getSqrt</a> (const real_t &amp;a)</td></tr>
+<tr class="memdesc:abee1742a6f723a8730d422add764cf2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the square root of a <br /></td></tr>
 <tr class="separator:abee1742a6f723a8730d422add764cf2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace0ccd33f4079b18ce080741c4b1abbd"><td class="memItemLeft" align="right" valign="top"><a id="ace0ccd33f4079b18ce080741c4b1abbd"></a>
-static int_t&#160;</td><td class="memItemRight" valign="bottom"><b>readFromFile</b> (real_t *data, int_t nrow, int_t ncol, const char *datafilename)</td></tr>
-<tr class="separator:ace0ccd33f4079b18ce080741c4b1abbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1e88b19ffcfa5de60af7910babd240a"><td class="memItemLeft" align="right" valign="top"><a id="af1e88b19ffcfa5de60af7910babd240a"></a>
-static int_t&#160;</td><td class="memItemRight" valign="bottom"><b>readFromFile</b> (int_t *data, int_t n, const char *datafilename)</td></tr>
+static int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#af1e88b19ffcfa5de60af7910babd240a">readFromFile</a> (int_t *data, int_t n, const char *datafilename)</td></tr>
+<tr class="memdesc:af1e88b19ffcfa5de60af7910babd240a"><td class="mdescLeft">&#160;</td><td class="mdescRight">read matrix from file <br /></td></tr>
 <tr class="separator:af1e88b19ffcfa5de60af7910babd240a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41b882ce5067e41ec72c3f8dbe71c205"><td class="memItemLeft" align="right" valign="top"><a id="a41b882ce5067e41ec72c3f8dbe71c205"></a>
-static int_t&#160;</td><td class="memItemRight" valign="bottom"><b>readFromFile</b> (real_t *data, int_t n, const char *datafilename)</td></tr>
+static int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a41b882ce5067e41ec72c3f8dbe71c205">readFromFile</a> (real_t *data, int_t n, const char *datafilename)</td></tr>
+<tr class="memdesc:a41b882ce5067e41ec72c3f8dbe71c205"><td class="mdescLeft">&#160;</td><td class="mdescRight">read matrix from file <br /></td></tr>
 <tr class="separator:a41b882ce5067e41ec72c3f8dbe71c205"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9924b528f72fb9703183306bd36f2249"><td class="memItemLeft" align="right" valign="top"><a id="a9924b528f72fb9703183306bd36f2249"></a>
-static real_t&#160;</td><td class="memItemRight" valign="bottom"><b>getCPUtime</b> ()</td></tr>
-<tr class="separator:a9924b528f72fb9703183306bd36f2249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae478d9bd2d8d63b1436074e81f22adfd"><td class="memItemLeft" align="right" valign="top"><a id="ae478d9bd2d8d63b1436074e81f22adfd"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixMult</b> (const real_t *matA, const real_t *matB, real_t *matC, int_t rowsA, int_t colsA, int_t colsB)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#ae478d9bd2d8d63b1436074e81f22adfd">MatrixMult</a> (const real_t *matA, const real_t *matB, real_t *matC, int_t rowsA, int_t colsA, int_t colsB)</td></tr>
+<tr class="memdesc:ae478d9bd2d8d63b1436074e81f22adfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiplication of the matrices A and B <br /></td></tr>
 <tr class="separator:ae478d9bd2d8d63b1436074e81f22adfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c08b33ad299373e33adc698dbb8ac16"><td class="memItemLeft" align="right" valign="top"><a id="a7c08b33ad299373e33adc698dbb8ac16"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>MatVecMult</b> (const real_t *matA, const real_t *vec1, real_t *vec2, const int_t rowsA, const int_t colsA)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a7c08b33ad299373e33adc698dbb8ac16">MatVecMult</a> (const real_t *matA, const real_t *vec1, real_t *vec2, const int_t rowsA, const int_t colsA)</td></tr>
+<tr class="memdesc:a7c08b33ad299373e33adc698dbb8ac16"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs vec2 = matA*vec1 <br /></td></tr>
 <tr class="separator:a7c08b33ad299373e33adc698dbb8ac16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06ba2855a5443fbeafcee05f0922ffef"><td class="memItemLeft" align="right" valign="top"><a id="a06ba2855a5443fbeafcee05f0922ffef"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>MatTVecMult</b> (const real_t *const matA, const real_t *const vec1, real_t *const vec2, const int_t rowsA, const int_t colsA)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a06ba2855a5443fbeafcee05f0922ffef">MatTVecMult</a> (const real_t *const matA, const real_t *const vec1, real_t *const vec2, const int_t rowsA, const int_t colsA)</td></tr>
+<tr class="memdesc:a06ba2855a5443fbeafcee05f0922ffef"><td class="mdescLeft">&#160;</td><td class="mdescRight">performs vec2 = matA^T*vec1 <br /></td></tr>
 <tr class="separator:a06ba2855a5443fbeafcee05f0922ffef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c852d2529925fc6f697b8a59dcb8777"><td class="memItemLeft" align="right" valign="top"><a id="a0c852d2529925fc6f697b8a59dcb8777"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixTranspose</b> (const real_t *matA, real_t *matB, const int_t rowsA, const int_t colsA)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a0c852d2529925fc6f697b8a59dcb8777">MatrixTranspose</a> (const real_t *matA, real_t *matB, const int_t rowsA, const int_t colsA)</td></tr>
+<tr class="memdesc:a0c852d2529925fc6f697b8a59dcb8777"><td class="mdescLeft">&#160;</td><td class="mdescRight">B = A^T (matrices stored row wise) <br /></td></tr>
 <tr class="separator:a0c852d2529925fc6f697b8a59dcb8777"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50cd08d9bbc20d8e0a97034e3c91149b"><td class="memItemLeft" align="right" valign="top"><a id="a50cd08d9bbc20d8e0a97034e3c91149b"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>ForwardSubstitution</b> (const real_t *matA, real_t *v1, const int_t rowsA, const int_t colsA)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a50cd08d9bbc20d8e0a97034e3c91149b">ForwardSubstitution</a> (const real_t *matA, real_t *v1, const int_t rowsA, const int_t colsA)</td></tr>
+<tr class="memdesc:a50cd08d9bbc20d8e0a97034e3c91149b"><td class="mdescLeft">&#160;</td><td class="mdescRight">solves x = inv(A)*b, where A is lower triangular <br /></td></tr>
 <tr class="separator:a50cd08d9bbc20d8e0a97034e3c91149b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d42c18082cc95580ecc72dd3d2ed64c"><td class="memItemLeft" align="right" valign="top"><a id="a6d42c18082cc95580ecc72dd3d2ed64c"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>BackwardSubstitution</b> (const real_t *matA, real_t *v1, const int_t colsA, const int_t activeCols)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a6d42c18082cc95580ecc72dd3d2ed64c">BackwardSubstitution</a> (const real_t *matA, real_t *v1, const int_t colsA, const int_t activeCols)</td></tr>
+<tr class="memdesc:a6d42c18082cc95580ecc72dd3d2ed64c"><td class="mdescLeft">&#160;</td><td class="mdescRight">solves x = inv(A)*b, where A is upper triangular <br /></td></tr>
 <tr class="separator:a6d42c18082cc95580ecc72dd3d2ed64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a364b6a79173992b5932ce1de83c3f907"><td class="memItemLeft" align="right" valign="top"><a id="a364b6a79173992b5932ce1de83c3f907"></a>
-static real_t&#160;</td><td class="memItemRight" valign="bottom"><b>min_value</b> (const real_t *v1, const int_t n)</td></tr>
+static real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a364b6a79173992b5932ce1de83c3f907">min_value</a> (const real_t *v1, const int_t n)</td></tr>
+<tr class="memdesc:a364b6a79173992b5932ce1de83c3f907"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the minimum value in the vector v1 <br /></td></tr>
 <tr class="separator:a364b6a79173992b5932ce1de83c3f907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43b8ca98139ca544d775a0ded04fc42f"><td class="memItemLeft" align="right" valign="top"><a id="a43b8ca98139ca544d775a0ded04fc42f"></a>
-static real_t&#160;</td><td class="memItemRight" valign="bottom"><b>max_value</b> (const real_t *v1, const int_t n)</td></tr>
+static real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a43b8ca98139ca544d775a0ded04fc42f">max_value</a> (const real_t *v1, const int_t n)</td></tr>
+<tr class="memdesc:a43b8ca98139ca544d775a0ded04fc42f"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the maximum value in the vector v1 <br /></td></tr>
 <tr class="separator:a43b8ca98139ca544d775a0ded04fc42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc078112e3332ce5abe4bb4fab919c5f"><td class="memItemLeft" align="right" valign="top"><a id="acc078112e3332ce5abe4bb4fab919c5f"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>min_value_idx</b> (const real_t *v1, real_t &amp;val, int_t &amp;idx, const int_t n)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#acc078112e3332ce5abe4bb4fab919c5f">min_value_idx</a> (const real_t *v1, real_t &amp;val, int_t &amp;idx, const int_t n)</td></tr>
+<tr class="memdesc:acc078112e3332ce5abe4bb4fab919c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the minimum value and index in the vector v1 <br /></td></tr>
 <tr class="separator:acc078112e3332ce5abe4bb4fab919c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf39f6b7559d122ca495c544cdd11a5e"><td class="memItemLeft" align="right" valign="top"><a id="aaf39f6b7559d122ca495c544cdd11a5e"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>max_value_idx</b> (const real_t *v1, real_t &amp;val, int_t &amp;idx, const int_t n)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#aaf39f6b7559d122ca495c544cdd11a5e">max_value_idx</a> (const real_t *v1, real_t &amp;val, int_t &amp;idx, const int_t n)</td></tr>
+<tr class="memdesc:aaf39f6b7559d122ca495c544cdd11a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the maximum value and index in the vector v1 <br /></td></tr>
 <tr class="separator:aaf39f6b7559d122ca495c544cdd11a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a447ae5c58458241940cd5024077aa7c4"><td class="memItemLeft" align="right" valign="top"><a id="a447ae5c58458241940cd5024077aa7c4"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixCopy</b> (const real_t *MatA, real_t *MatB, int_t rowsA, int_t colsA)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a447ae5c58458241940cd5024077aa7c4">MatrixCopy</a> (const real_t *MatA, real_t *MatB, int_t rowsA, int_t colsA)</td></tr>
+<tr class="memdesc:a447ae5c58458241940cd5024077aa7c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy MatrixA into MatrixB <br /></td></tr>
 <tr class="separator:a447ae5c58458241940cd5024077aa7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a158126c3f59f4f1163c2135558edad"><td class="memItemLeft" align="right" valign="top"><a id="a2a158126c3f59f4f1163c2135558edad"></a>
-static real_t&#160;</td><td class="memItemRight" valign="bottom"><b>VectorInfNorm</b> (const real_t *v1, const int_t n)</td></tr>
+static real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a2a158126c3f59f4f1163c2135558edad">VectorInfNorm</a> (const real_t *v1, const int_t n)</td></tr>
+<tr class="memdesc:a2a158126c3f59f4f1163c2135558edad"><td class="mdescLeft">&#160;</td><td class="mdescRight">return infinity norm of vector v1 <br /></td></tr>
 <tr class="separator:a2a158126c3f59f4f1163c2135558edad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a993999aee4bc4a16d6d8cf446e2b43bf"><td class="memItemLeft" align="right" valign="top"><a id="a993999aee4bc4a16d6d8cf446e2b43bf"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>SeqSearch</b> (const int_t *v1, const int_t val, const int_t n)</td></tr>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a993999aee4bc4a16d6d8cf446e2b43bf">SeqSearch</a> (const int_t *v1, const int_t val, const int_t n)</td></tr>
+<tr class="memdesc:a993999aee4bc4a16d6d8cf446e2b43bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform sequential search in a vector for val <br /></td></tr>
 <tr class="separator:a993999aee4bc4a16d6d8cf446e2b43bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a215558fae683a9b673bb212149d5bfe6"><td class="memItemLeft" align="right" valign="top"><a id="a215558fae683a9b673bb212149d5bfe6"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>ScalarVectorMult</b> (real_t *vec, const real_t a, const int_t n)</td></tr>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a215558fae683a9b673bb212149d5bfe6">ScalarVectorMult</a> (real_t *vec, const real_t a, const int_t n)</td></tr>
+<tr class="memdesc:a215558fae683a9b673bb212149d5bfe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply vector by a scalar <br /></td></tr>
 <tr class="separator:a215558fae683a9b673bb212149d5bfe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1811e499bde85785af7029d447106f54"><td class="memItemLeft" align="right" valign="top"><a id="a1811e499bde85785af7029d447106f54"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>anyPositive</b> (const real_t *const vec1, const int_t n)</td></tr>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a1811e499bde85785af7029d447106f54">anyPositive</a> (const real_t *const vec1, const int_t n)</td></tr>
+<tr class="memdesc:a1811e499bde85785af7029d447106f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">check existence of a positive element in the vector vec1 <br /></td></tr>
 <tr class="separator:a1811e499bde85785af7029d447106f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e560a88e1aebcca06dc1f259fefd1d9"><td class="memItemLeft" align="right" valign="top"><a id="a3e560a88e1aebcca06dc1f259fefd1d9"></a>
-static int_t&#160;</td><td class="memItemRight" valign="bottom"><b>absolute</b> (const int_t a)</td></tr>
+static int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html#a3e560a88e1aebcca06dc1f259fefd1d9">absolute</a> (const int_t a)</td></tr>
+<tr class="memdesc:a3e560a88e1aebcca06dc1f259fefd1d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the absolute value of a <br /></td></tr>
 <tr class="separator:a3e560a88e1aebcca06dc1f259fefd1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class contains all the utilites used for the toolbox. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a775b3095c46f7843ab372cebe8e3bb53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a775b3095c46f7843ab372cebe8e3bb53">&#9670;&nbsp;</a></span>LoadVec() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Utils::LoadVec </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real_t **&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int_t &amp;&#160;</td>
+          <td class="paramname"><em>nv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>function to load data from .txt files </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>is the path to the file </td></tr>
+    <tr><td class="paramname">vec</td><td>is the address of the pointer where the data must be stored </td></tr>
+    <tr><td class="paramname">nv</td><td>is the size of the vector which is being loaded </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae426f40f3bf3e106c277dc4d58ebf046"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae426f40f3bf3e106c277dc4d58ebf046">&#9670;&nbsp;</a></span>LoadVec() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Utils::LoadVec </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int_t **&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int_t &amp;&#160;</td>
+          <td class="paramname"><em>nv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>function to load data from .txt files </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>is the path to the file </td></tr>
+    <tr><td class="paramname">vec</td><td>is the address of the pointer where the data must be stored </td></tr>
+    <tr><td class="paramname">nv</td><td>is the size of the vector which is being loaded </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>pdMPC_discrete/src/<a class="el" href="_utils_8h_source.html">Utils.h</a></li>
 <li>pdMPC_discrete/src/Utils.cpp</li>

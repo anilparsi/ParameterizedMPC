@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['z',['z',['../class_q_p_solver.html#a62debc1154592efcca421275e2c7f3ee',1,'QPSolver']]]
+  ['ubineq',['ubineq',['../class_q_p_solver.html#ae384b80c070b9843542f4feb945342de',1,'QPSolver']]],
+  ['utils',['Utils',['../class_utils.html',1,'']]]
 ];

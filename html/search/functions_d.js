@@ -7,7 +7,5 @@ var searchData=
   ['vectormult',['VectorMult',['../class_utils.html#ad0d865c49172eaecacc52c414c410344',1,'Utils']]],
   ['vectornorm',['VectorNorm',['../class_utils.html#a7f51636ab28a43c2be4938d7dc9b0b20',1,'Utils']]],
   ['vectornormdiff',['VectorNormDiff',['../class_utils.html#a9a5a0e1cdc601b8d836f59d6f6ecc7dc',1,'Utils']]],
-  ['vectorsubstract',['VectorSubstract',['../class_utils.html#a9e3aea2c485e0fa00a4e90cd1b0fbfad',1,'Utils']]],
-  ['viol',['viol',['../class_q_p_solver.html#a8f4a96b2ae71c5ab044f363587f2f991',1,'QPSolver']]],
-  ['viol_5fidx',['viol_idx',['../class_q_p_solver.html#a41cc11323c53269d1e8c1c03d8f0dd3b',1,'QPSolver']]]
+  ['vectorsubstract',['VectorSubstract',['../class_utils.html#a9e3aea2c485e0fa00a4e90cd1b0fbfad',1,'Utils']]]
 ];
