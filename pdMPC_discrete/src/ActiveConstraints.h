@@ -7,7 +7,7 @@
 class ConstraintSet{
 public:
 	/// constructor
-	ConstraintSet(){
+	ConstraintSet(){		
 		// initialize number of elements to 0
 		n = 0;
 	}
@@ -104,13 +104,6 @@ public:
 	/// reset active set: error handling
 	void resetActiveSet();
 
-	/// update active set for warmstart
-	virtual void updateActiveSet() {
-		/// used in virtual class for slack constraints
-	}
-
-	/// empty function, used for slack constraints
-	virtual void dotProductFunction(const real_t *const lambda, real_t &val) {};
 
 protected:
 	

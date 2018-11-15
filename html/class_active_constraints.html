@@ -121,13 +121,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#a098f02f76d7ce079618bfe99e5e8cd20">resetActiveSet</a> ()</td></tr>
 <tr class="memdesc:a098f02f76d7ce079618bfe99e5e8cd20"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset active set: error handling <br /></td></tr>
 <tr class="separator:a098f02f76d7ce079618bfe99e5e8cd20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63d614c982d5a19a0d403988d2b38a91"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#a63d614c982d5a19a0d403988d2b38a91">updateActiveSet</a> ()</td></tr>
-<tr class="memdesc:a63d614c982d5a19a0d403988d2b38a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">update active set for warmstart  <a href="#a63d614c982d5a19a0d403988d2b38a91">More...</a><br /></td></tr>
-<tr class="separator:a63d614c982d5a19a0d403988d2b38a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a82d7b5ae432ed03cb68f2438125dc6"><td class="memItemLeft" align="right" valign="top"><a id="a7a82d7b5ae432ed03cb68f2438125dc6"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#a7a82d7b5ae432ed03cb68f2438125dc6">dotProductFunction</a> (const real_t *const lambda, real_t &amp;val)</td></tr>
-<tr class="memdesc:a7a82d7b5ae432ed03cb68f2438125dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty function, used for slack constraints <br /></td></tr>
-<tr class="separator:a7a82d7b5ae432ed03cb68f2438125dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -170,38 +163,9 @@ real_t *&#160;</td><td class="memItemRight" valign="bottom"><b>m_temp_nz2</b></t
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class performs matrix operations involving the active set. Constraints can be added and removed from the active set, and the active set matrix can be multiplied with vectors. W is the matrix containing the active constraints' coefficients w is the vector containing the active bounds on these constraints </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a63d614c982d5a19a0d403988d2b38a91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63d614c982d5a19a0d403988d2b38a91">&#9670;&nbsp;</a></span>updateActiveSet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void ActiveConstraints::updateActiveSet </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>update active set for warmstart </p>
-<p>used in virtual class for slack constraints </p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/anilparsi/ParameterizedMPC/pdMPC_discrete/src/<a class="el" href="_active_constraints_8h_source.html">ActiveConstraints.h</a></li>
-<li>/Users/anilparsi/ParameterizedMPC/pdMPC_discrete/src/ActiveConstraints.cpp</li>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>pdMPC_discrete/src/<a class="el" href="_active_constraints_8h_source.html">ActiveConstraints.h</a></li>
+<li>pdMPC_discrete/src/ActiveConstraints.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
