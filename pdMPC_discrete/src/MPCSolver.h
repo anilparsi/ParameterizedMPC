@@ -2,7 +2,7 @@
 
 #include "QPSolver.h"
 /*! \class MPCSolver
- * \brief This class is be used to solve the QP problems encountered in parameterized 
+ * \brief This class is used to solve the QP problems encountered in parameterized 
  * model predictive control (pdMPC).
  * 
  */
@@ -18,7 +18,15 @@ public:
 	/// destructor
 	~MPCSolver(); 
 	
-	/// update implementation of solve
+	/*!
+	 * \brief solve the QP at one time instance for a given state
+	 * 
+	 * This function is called at each time instance of the MPC algorithm. In this function, the optimization
+	 * problem is modified according to the current state. Then the QPSolver class is used to solve the new 
+	 * problem. 
+	 * 
+	 * \param x_IC is the current state of the system
+	 */
 	void	solve(const real_t *const x_IC);
 	
 	/// returns control inputs

@@ -110,7 +110,8 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:a368cae3399dbfb486f44b68a71ffc9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">add new constraint to Q and R <br /></td></tr>
 <tr class="separator:a368cae3399dbfb486f44b68a71ffc9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a499db8d23674c0f2c9fb4870c19b31fe"><td class="memItemLeft" align="right" valign="top"><a id="a499db8d23674c0f2c9fb4870c19b31fe"></a>
-const int_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getActiveSetSize</b> () const</td></tr>
+const int_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#a499db8d23674c0f2c9fb4870c19b31fe">getActiveSetSize</a> () const</td></tr>
+<tr class="memdesc:a499db8d23674c0f2c9fb4870c19b31fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the current active set size <br /></td></tr>
 <tr class="separator:a499db8d23674c0f2c9fb4870c19b31fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1684d55001d960b5fcbf6f7d3e407361"><td class="memItemLeft" align="right" valign="top"><a id="a1684d55001d960b5fcbf6f7d3e407361"></a>
 const int_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#a1684d55001d960b5fcbf6f7d3e407361">getActiveIndex</a> (const int_t idx) const</td></tr>
@@ -166,7 +167,10 @@ real_t *&#160;</td><td class="memItemRight" valign="bottom"><b>m_temp_nz2</b></t
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class performs matrix operations involving the active set. </p>
-<p>Constraints can be added and removed from the active set, and the active set matrix can be multiplied with vectors. W is the matrix containing the active constraints' coefficients w is the vector containing the active bounds on these constraints </p>
+<p>Constraints can be added and removed from the active set, and the active set matrix can be multiplied with vectors. <br />
+ W is the matrix containing the active constraints' coefficients. <br />
+ w is the vector containing the active bounds on these constraints. <br />
+ Matrix operations to be performed on the matrix W and the vector w are performed through this class. However, the matrix W is stored in the form of the QR decomposition of Li*W^T. The variable Rmat is used to store the R matrix from the QR decomposition. </p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>pdMPC_discrete/src/<a class="el" href="_active_constraints_8h_source.html">ActiveConstraints.h</a></li>
 <li>pdMPC_discrete/src/ActiveConstraints.cpp</li>

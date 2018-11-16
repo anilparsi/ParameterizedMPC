@@ -2,6 +2,7 @@ var searchData=
 [
   ['g',['g',['../class_q_p_solver.html#a2be86115a638b75d203b49ab5bb36a92',1,'QPSolver']]],
   ['getactiveindex',['getActiveIndex',['../class_active_constraints.html#a1684d55001d960b5fcbf6f7d3e407361',1,'ActiveConstraints']]],
+  ['getactivesetsize',['getActiveSetSize',['../class_active_constraints.html#a499db8d23674c0f2c9fb4870c19b31fe',1,'ActiveConstraints']]],
   ['getcontrolinputs',['getControlInputs',['../class_m_p_c_solver.html#abb7b63152716630745b18cf517ff4d15',1,'MPCSolver']]],
   ['getexitflag',['getExitFlag',['../class_q_p_solver.html#aabacce92f9051a1c25e19764eda81614',1,'QPSolver']]],
   ['getindex',['getIndex',['../class_constraint_set.html#a417907d010b6716e453b3fdd0950abfc',1,'ConstraintSet']]],

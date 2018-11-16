@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This class is be used to solve the QP problems encountered in parameterized model predictive control (pdMPC).  
+<p>This class is used to solve the QP problems encountered in parameterized model predictive control (pdMPC).  
  <a href="class_m_p_c_solver.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_m_p_c_solver_8h_source.html">MPCSolver.h</a>&gt;</code></p>
@@ -91,9 +91,8 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_c_solver.html#af6d7ab59550b8a253e4b32025c4c8d33">~MPCSolver</a> ()</td></tr>
 <tr class="memdesc:af6d7ab59550b8a253e4b32025c4c8d33"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
 <tr class="separator:af6d7ab59550b8a253e4b32025c4c8d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd9e45b549ea01b900f3b57edac2bf7c"><td class="memItemLeft" align="right" valign="top"><a id="acd9e45b549ea01b900f3b57edac2bf7c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_c_solver.html#acd9e45b549ea01b900f3b57edac2bf7c">solve</a> (const real_t *const x_IC)</td></tr>
-<tr class="memdesc:acd9e45b549ea01b900f3b57edac2bf7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">update implementation of solve <br /></td></tr>
+<tr class="memitem:acd9e45b549ea01b900f3b57edac2bf7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_c_solver.html#acd9e45b549ea01b900f3b57edac2bf7c">solve</a> (const real_t *const x_IC)</td></tr>
+<tr class="memdesc:acd9e45b549ea01b900f3b57edac2bf7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">solve the QP at one time instance for a given state  <a href="#acd9e45b549ea01b900f3b57edac2bf7c">More...</a><br /></td></tr>
 <tr class="separator:acd9e45b549ea01b900f3b57edac2bf7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb7b63152716630745b18cf517ff4d15"><td class="memItemLeft" align="right" valign="top"><a id="abb7b63152716630745b18cf517ff4d15"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_p_c_solver.html#abb7b63152716630745b18cf517ff4d15">getControlInputs</a> (real_t *u_out) const</td></tr>
@@ -217,7 +216,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a8f4a96b2ae71c5ab044f363587f2f991 inherit pro_attribs_class_q_p_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class is be used to solve the QP problems encountered in parameterized model predictive control (pdMPC). </p>
+<div class="textblock"><p>This class is used to solve the QP problems encountered in parameterized model predictive control (pdMPC). </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa67035a19046fc57c1415b6e16be4ffc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa67035a19046fc57c1415b6e16be4ffc">&#9670;&nbsp;</a></span>MPCSolver()</h2>
@@ -237,6 +236,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Constructor to implement pdMPC solver with MATLAB interface </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dir</td><td>contains the address of the directory with required matrices to solve the pdMPC problem in .txt files. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="acd9e45b549ea01b900f3b57edac2bf7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd9e45b549ea01b900f3b57edac2bf7c">&#9670;&nbsp;</a></span>solve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MPCSolver::solve </td>
+          <td>(</td>
+          <td class="paramtype">const real_t *const&#160;</td>
+          <td class="paramname"><em>x_IC</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>solve the QP at one time instance for a given state </p>
+<p>This function is called at each time instance of the MPC algorithm. In this function, the optimization problem is modified according to the current state. Then the <a class="el" href="class_q_p_solver.html" title="Solve quadratic programming problems using active set approach. ">QPSolver</a> class is used to solve the new problem.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x_IC</td><td>is the current state of the system </td></tr>
   </table>
   </dd>
 </dl>

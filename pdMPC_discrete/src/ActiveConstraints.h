@@ -53,14 +53,18 @@ private:
 };
 
 /*! 
- *  \brief This class performs matrix operations involving the active set. 
+ * \brief This class performs matrix operations involving the active set. 
  * 
- *  Constraints can be added and removed from the active set, and the active set matrix can be multiplied with vectors.
- *  W is the matrix containing the active constraints' coefficients
- *  w is the vector containing the active bounds on these constraints
+ * Constraints can be added and removed from the active set, and the active set matrix can be multiplied with vectors. <br>
+ * W is the matrix containing the active constraints' coefficients. <br>
+ * w is the vector containing the active bounds on these constraints. <br>
+ * Matrix operations to be performed on the matrix W and the vector w are performed through this class. 
+ * However, the matrix W is stored in the form of the QR decomposition of Li*W^T. The variable Rmat is used to
+ * store the R matrix from the QR decomposition. 
+ * 
  */
 class ActiveConstraints{
-	// Li*W^T = Q*R is the way in which it is stored
+	
 
 public:
 	/// constructor
@@ -90,6 +94,7 @@ public:
 	/// add new constraint to Q and R
 	virtual void addConstraint(const int_t viol_idx);
 
+	/// returns the current active set size
 	const int_t& getActiveSetSize() const{
 		return active.getSize();
 	};
