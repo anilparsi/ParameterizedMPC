@@ -67,7 +67,13 @@ class ActiveConstraints{
 	
 
 public:
-	/// constructor
+	/*! \brief constructor
+	 * 
+	 * \param AiZ contains the coefficients of inequality constraints
+	 * \param lb contains the lower bounds of inequality constraints
+	 * \param ub contains the containing upper bounds of inequality constraints
+	 * \param 
+	 */
 	ActiveConstraints(const real_t *const AiZ, const real_t *const lb, 
 				const real_t *const ub, const real_t *const Li, const int_t nz); 
 	

@@ -1,11 +1,11 @@
 #pragma once
 
 #include "mex.h"
-#include "QPSolver.cpp"
-#include "MPCSolver.cpp"
-#include "ActiveConstraints.cpp"
-#include "Rmatrix.cpp"
-#include "Utils.cpp"
+#include "../QPSolver.cpp"
+#include "../MPCSolver.cpp"
+#include "../ActiveConstraints.cpp"
+#include "../Rmatrix.cpp"
+#include "../Utils.cpp"
 #include <string>
 #include <vector>
 

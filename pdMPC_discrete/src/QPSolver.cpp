@@ -5,7 +5,12 @@
 #include "Utils.h"
 #include "ActiveConstraints.h"
 
-#include <direct.h>
+#ifdef _WIN32
+    #include <direct.h>
+    #define getcwd _getcwd // stupid MSFT "deprecation" warning
+#else
+    #include <unistd.h>
+#endif
 #include <cassert>
 #include <iostream>
 #include <algorithm>
@@ -15,7 +20,7 @@ QPSolver::QPSolver(std::string dir){
 	{
 		char cCurrentPath[FILENAME_MAX];
 
-		if (!_getcwd(cCurrentPath, sizeof(cCurrentPath))){
+		if (!getcwd(cCurrentPath, sizeof(cCurrentPath))){
 			assert(false);
 		}
 
@@ -268,12 +273,6 @@ void QPSolver::checkConstraints(){
 	}	
 	viol = (max_error>TOL);
 
-}
-
-void QPSolver::updateProblem()
-{
-	// update the active set for warm start
-	activeCons->updateActiveSet();
 }
 
 

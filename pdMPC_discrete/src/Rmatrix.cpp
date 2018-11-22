@@ -1,6 +1,7 @@
 #include "Rmatrix.h"
 #include "Utils.h"
 #include "DefineSettings.h"
+#include <cmath>
 
 Rmatrix::Rmatrix(const int_t nz, const int_t *const nac):
 		m_nz(nz), m_nac(nac),TOL(1e-15){	// hardcoded tolerance for linear dependency

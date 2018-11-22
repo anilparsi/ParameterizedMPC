@@ -3,12 +3,12 @@
 #include "MPCSolver.h"
 #include "DefineSettings.h"
 #include "Utils.h"
-
+#include <cmath>
 #include <string>
 
 
 // Check implementation of parameterized MPC 
-/*
+
 int main(){
 	
 	real_t *A,*B;
@@ -18,7 +18,7 @@ int main(){
 	// load matrices A and B
 	std::string tmp=dir+"/A";
 	Utils::LoadVec(tmp.c_str(),&A,temp);
-	n = (int_t)Utils::getSqrt(temp);
+	n = (int_t)sqrt(temp);
 
 	tmp=dir+"/B";
 	Utils::LoadVec(tmp.c_str(),&B,temp);
@@ -60,9 +60,9 @@ int main(){
 	delete[] Bu;
 	return 0;
 }
-*/
 
 
+/*
 // Check the QPSolver constructor with matrices given as pointers
 int main(){
 
@@ -102,3 +102,4 @@ for (int_t i = 0; i < nz; i++)
 delete[] z;
 return 0;
 }
+*/

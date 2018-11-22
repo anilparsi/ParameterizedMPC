@@ -62,11 +62,6 @@ class Utils{
 	/// component wise multiplication of the vectors a and b
 	static void VectorMult(const real_t* a, const real_t* b, real_t* c, int_t n);	
 
-	/// returns the square root of a
-	static real_t getSqrt(const real_t& a){
-		return a>=0? sqrt(a): 0;
-	}
-
 	/// read matrix from file
 	static int_t readFromFile(int_t* data, int_t n, const char* datafilename);
 

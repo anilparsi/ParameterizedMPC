@@ -1,7 +1,7 @@
 #include "Utils.h"
 #include <stdio.h>
 #include <cassert>
-
+#include <cmath>
 
 void Utils::LoadVec(const char* str, real_t** vec, int_t& nv){
 		std::string filename_base=str;
@@ -81,7 +81,7 @@ real_t Utils::VectorNorm(const real_t* a, int_t n){
 		for(int_t k=0;k<n;++k){
 			res+=a[k]*a[k];
 		}
-		return getSqrt(res);
+		return sqrt(res);
 	}
 
 	// returns ||a-b||_2
@@ -90,7 +90,7 @@ real_t Utils::VectorNormDiff(const real_t* a, const real_t* b, int_t n){
 		for(int_t k=0;k<n;++k){
 			res+=(a[k]-b[k])*(a[k]-b[k]);
 		}
-		return Utils::getSqrt(res);
+		return sqrt(res);
 	}
 
 	// component wise multiplication of the vectors a and b
@@ -105,10 +105,34 @@ void Utils::VectorMult(const real_t* a, const real_t* b, real_t* c, int_t n){
 	/*
 	 *	r e a d F r o m F i l e
 	 */
-int_t Utils::readFromFile(real_t* data, int_t n, const char* datafilename){
-		return readFromFile( data, n, 1, datafilename );
-	}
 
+int_t Utils::readFromFile(real_t* data, int_t n, const char* datafilename){
+		int_t i;
+		real_t float_data;
+		FILE* datafile;
+
+		if ( ( datafile = fopen( datafilename, "r" ) ) == 0 )
+		{
+			printf("\n\runable to read file 123%s\n",datafilename);
+			return -1;
+		}
+
+		for( i=0; i<n; ++i )
+		{
+				
+			if ( fscanf( datafile, "%lf ", &float_data ) == 0 )
+			{
+				fclose( datafile );
+				printf("\n\runable to read file %s\n",datafilename);
+				return -1;
+			}
+			data[i] = ( (real_t) float_data );
+		}
+
+		fclose( datafile );
+
+		return -1;
+}
 
 	
 int_t Utils::readFromFile(int_t* data, int_t n, const char* datafilename){

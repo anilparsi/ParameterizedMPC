@@ -1,5 +1,5 @@
 **/build/
 *.mexw64
-
+*.mexmaci64
 *.log
 *.asv

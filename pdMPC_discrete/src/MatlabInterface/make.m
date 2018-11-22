@@ -1,4 +1,10 @@
 function make(vargin)
+% Generate the matlab interface of parameterized MPC.
+%
+% Example:
+% make(clean)   cleans the mex files in the directory
+% make          creates a mex file from the C++ code
+
 if nargin==1
     if strcmp(vargin,'clean')
         eval('delete *.o;');
