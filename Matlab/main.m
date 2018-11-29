@@ -16,7 +16,7 @@ handle = generateSolver(moas);
 %% Closed Loop Simulation
 
 % simulate in closed-loop
-[t,xtraj,utraj,iter,exectime,J] = simulatepdMPC(handle,moas);
+[t,xtraj,utraj,iter,exectime,J] = simulatepMPC(handle,moas);
 
 %% Plot trajectories
 figure(20); clf;

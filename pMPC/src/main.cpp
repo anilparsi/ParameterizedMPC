@@ -6,7 +6,7 @@
 #include <string>
 
 
-// Check implementation of parameterized MPC 
+// Implementation of parameterized MPC for a given system
 
 int main(){
 	real_t *A,*B;
@@ -14,44 +14,36 @@ int main(){
 	std::string dir = "Data/MPCmat";
 
 	// load matrices A and B
-	std::string tmp=dir+"/A";
+	std::string tmp = dir+"/A";
 	Utils::LoadVec(tmp.c_str(),&A,temp);
 	n = (int_t)sqrt(temp);
 
-	tmp=dir+"/B";
+	tmp = dir+"/B";
 	Utils::LoadVec(tmp.c_str(),&B,temp);
 	m = temp/n;
-	real_t *Ax = new real_t[n],*Bu = new real_t [n];
+	
+	real_t *Ax = new real_t[n];
+	real_t *Bu = new real_t [n];
 
-	// loads MPC problem data into pmpc object
+	// define a parameterized MPC solver
 	MPCSolver pmpc(dir);
 
 	int_t tmax = 1000;						// simulation duration
-	real_t x0[] = {0.5, 0.5, 0.5, 0.0};
-	
+	real_t x0[] = {0.5, 0.5, 0.5, 0.5};	
 	
 	real_t *x = new real_t [tmax*n],
 		   *u = new real_t [tmax*m];
 	
 	Utils::VectorCopy(x0,x,n);
 
-	// for the QuadMPC, solve one time step outside loop	(due to u(-1))
-	pmpc.solve(&x[0]);	
-	pmpc.getControlInputs(&u[0]);
-	Utils::MatrixMult(A,&x[0],Ax,n,n,1);
-	Utils::MatrixMult(B,&u[0],Bu,n,m,1);
-	Utils::VectorAdd(Ax,Bu,&x[n],n);
 	// simulate for tmax;
-	for(int i=1; i<tmax-1;++i){	
+	for(int i=0; i<tmax-1;++i){	
 		pmpc.solve(&x[n*i]);	
 		pmpc.getControlInputs(&u[m*i]);
 		Utils::MatrixMult(A,&x[n*i],Ax,n,n,1);
 		Utils::MatrixMult(B,&u[m*i],Bu,n,m,1);
 		Utils::VectorAdd(Ax,Bu,&x[n*(i+1)],n);
-	// printf("state is %f, %f, %f, %f.\n",x[n*i-4],x[n*i-3],x[n*i-2],x[n*i-1]);	
-	// printf("input is %f.\n",u[0]);	
 	}
-
 
 	delete[] x;
 	delete[] u;
@@ -62,7 +54,9 @@ int main(){
 
 
 /*
+
 // Check the QPSolver constructor with matrices given as pointers
+
 int main(){
 
 real_t *Li,*g,*Aineq,*lbineq,*ubineq;

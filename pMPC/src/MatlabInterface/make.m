@@ -16,13 +16,15 @@ else
     
     IFLAGS = [' -I',GFDGPATH,' '];
     
+    % Uncomment the following flags for DEBUG mode
 %     DEBUGFLAGS=  ' -g CXXDEBUGFLAGS=''$CXXDEBUGFLAGS -Wall -pedantic -Wshadow'' ';    
 %     OPTIMIZEFLAGS= '';
     
+    % Uncomment the following flags for OPTIMIZED code
     DEBUGFLAGS= '';
 	OPTIMIZEFLAGS= 'OPTIMFLAGS="/Ox" ';
 
-    cmd = [ 'mex -output pdMPC_discrete ',IFLAGS, DEBUGFLAGS, OPTIMIZEFLAGS, '-D__SINGLE_OBJECT__ ', '-D__MATLAB__ ','pdMPC_discrete_mat.cpp'];
+    cmd = [ 'mex -output pMPC ',IFLAGS, DEBUGFLAGS, OPTIMIZEFLAGS, '-D__SINGLE_OBJECT__ ', '-D__MATLAB__ ','pMPC_matlab.cpp'];
     
     eval(cmd);
     

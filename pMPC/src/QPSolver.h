@@ -4,7 +4,7 @@
 #include "ActiveConstraints.h"
 
 /*! \class QPSolver
- * \brief Solve quadratic programming problems using active set approach.
+ * \brief Solve quadratic programming problems using an active set approach.
  *
  * QP formulation:
  *	min		0.5 z^T G z + g^T z
@@ -52,7 +52,7 @@ public:
 	/// function to solve QP using incremental active set approach
 	void	solve();
 
-	/*! \brief number of active set iterations
+	/*! \brief get the number of active set iterations
 	 */
 	int_t	getIterNumber() const {return iter;}
 	
@@ -60,7 +60,8 @@ public:
 	 */
 	int_t	getExitFlag() const { return exitFlag; }
 
-	/*! \brief returns the solution to QP
+	/*! \brief get the solution to QP
+		\param z_out is the vector into which the solution to QP is copied
 	 */
 	void	getSolutionCopy(real_t *z_out) const;
 private:

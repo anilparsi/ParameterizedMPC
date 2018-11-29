@@ -4,7 +4,7 @@ function handle = generateSolver(moas)
 %% User defined settings for parameterized MPC
 
 % path to the .txt files: inputs for C++
-path = fullfile('..','pdMPC_discrete','build','Data','MPCmat');
+path = fullfile('..','pMPC','build','Data','MPCmat');
 
 tolMin  = 1e-9;     % minimum tolerance for constraint check
 tolMax  = 1e-5;     % maximum tolerance for constraint check
@@ -111,6 +111,6 @@ vec2dense(tmp(:),fullfile(path,'B'));
 %% Initialize parameterized MPC solver
 
 % generate mex function
-run(fullfile('..','pdMPC_discrete','src','MatlabInterface','make.m'))
+run(fullfile('..','pMPC','src','MatlabInterface','make.m'))
 % initialize solver
-handle = pdMPC_discrete('i',path);
+handle = pMPC('i',path);

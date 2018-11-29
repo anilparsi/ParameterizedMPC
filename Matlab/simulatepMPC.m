@@ -17,7 +17,7 @@
 %           J        closed-loop cost
 %           opt      exitflag of the MPC solver (not implemented)
 %
-function [time,xtraj,utraj,iter,exectime,J] = simulatepdMPC(handle,moas)
+function [time,xtraj,utraj,iter,exectime,J] = simulatepMPC(handle,moas)
 %% User defined variables
 
 % simulation time
@@ -40,7 +40,7 @@ J = 0;
 
 % just measure the execution time for warm-starts -> solve the optimization
 % a first time
-[handle,utmp,itertmp] = pdMPC_discrete('s',handle,xtraj(1,:)');
+[handle,utmp,itertmp] = pMPC('s',handle,xtraj(1,:)');
 utraj(1,:) = utmp;
 
         
@@ -52,7 +52,7 @@ for k = 2:nsteps
     
     % solve optimization problem
     tic;
-    [handle,utmp,iter(k-1)] = pdMPC_discrete('s',handle,xtraj(k-1,:)');
+    [handle,utmp,iter(k-1)] = pMPC('s',handle,xtraj(k-1,:)');
     exectime(k-1) = toc;
     utraj(k) = utmp;    
             
@@ -67,4 +67,4 @@ for k = 2:nsteps
 end
 
 % terminate solver
-pdMPC_discrete('d',handle);
+pMPC('d',handle);
