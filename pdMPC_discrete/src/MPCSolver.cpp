@@ -126,6 +126,7 @@ void MPCSolver::solve(const real_t *const x_IC){
 
 	QPSolver::solve();
 
+	
 	if (!viol){
 	// QP solved: convert z to u
 	real_t *temp = new real_t[m*s];
@@ -146,11 +147,11 @@ void MPCSolver::solve(const real_t *const x_IC){
 
 void MPCSolver::checkConstraints(){
 	// choose method with less number of variables
-	//if(s>nz){	
+	if(s>nz){	
 		QPSolver::checkConstraints();
-	//}else{
-		//checkConstraints_skip();
-	//}
+	}else{
+		checkConstraints_skip();
+	}
 }
 
 void MPCSolver::checkConstraints_skip(){
@@ -237,5 +238,5 @@ void MPCSolver::getControlInputs(real_t *u_out) const{
 	for(int i=0;i<m;++i){
 	u_out[i] = u[i];
 	}
-	//printf("input is %f.\n",u[0]);
+	// printf("input is %f.\n",u[0]);
 }

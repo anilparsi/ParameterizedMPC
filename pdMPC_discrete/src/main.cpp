@@ -1,4 +1,3 @@
-#pragma once
 #include "QPSolver.h"
 #include "MPCSolver.h"
 #include "DefineSettings.h"
@@ -10,10 +9,9 @@
 // Check implementation of parameterized MPC 
 
 int main(){
-	
 	real_t *A,*B;
 	int_t n,m,temp;
-	std::string dir = "Data/MPCmat";
+	std::string dir = "ParameterizedMPC/pdMPC_discrete/build/Data/MPCmat";
 
 	// load matrices A and B
 	std::string tmp=dir+"/A";
@@ -28,8 +26,8 @@ int main(){
 	// loads MPC problem data into pmpc object
 	MPCSolver pmpc(dir);
 
-	int_t tmax = 600;						// simulation duration
-	real_t x0[] = {0.5, 0.5, 0.5, 0.5};
+	int_t tmax = 1000;						// simulation duration
+	real_t x0[] = {0.5, 0.5, 0.5, 0.0};
 	
 	
 	real_t *x = new real_t [tmax*n],
@@ -39,11 +37,10 @@ int main(){
 
 	// for the QuadMPC, solve one time step outside loop	(due to u(-1))
 	pmpc.solve(&x[0]);	
-	pmpc.getSolutionCopy(&u[0]);
+	pmpc.getControlInputs(&u[0]);
 	Utils::MatrixMult(A,&x[0],Ax,n,n,1);
 	Utils::MatrixMult(B,&u[0],Bu,n,m,1);
 	Utils::VectorAdd(Ax,Bu,&x[n],n);
-
 	// simulate for tmax;
 	for(int i=1; i<tmax-1;++i){	
 		pmpc.solve(&x[n*i]);	
@@ -51,6 +48,8 @@ int main(){
 		Utils::MatrixMult(A,&x[n*i],Ax,n,n,1);
 		Utils::MatrixMult(B,&u[m*i],Bu,n,m,1);
 		Utils::VectorAdd(Ax,Bu,&x[n*(i+1)],n);
+	// printf("state is %f, %f, %f, %f.\n",x[n*i-4],x[n*i-3],x[n*i-2],x[n*i-1]);	
+	// printf("input is %f.\n",u[0]);	
 	}
 
 

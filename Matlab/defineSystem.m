@@ -35,10 +35,10 @@ sys.Q = diag([1 1 1 1]);
 sys.R = 0.05;
 
 % sampling time for discretization
-sys.Ts=.02;
+sys.Ts = .02;
 
 % Give initial condition
-sys.x0=5*[.1;.1;.1;.1];
+sys.x0 = [0.5; 0.5; 0.5; 0.0];
 
 %% Derived variables
 

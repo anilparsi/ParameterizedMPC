@@ -22,6 +22,34 @@ void Utils::LoadVec(const char* str, real_t** vec, int_t& nv){
 
 		delete [] tmp;
 	}
+	
+int_t Utils::readFromFile(real_t* data, int_t n, const char* datafilename){
+		int_t i;
+		real_t float_data;
+		FILE* datafile;
+
+		if ( ( datafile = fopen( datafilename, "r" ) ) == 0 )
+		{
+			printf("\n\runable to read file 123%s\n",datafilename);
+			return -1;
+		}
+
+		for( i=0; i<n; ++i )
+		{
+				
+			if ( fscanf( datafile, "%lf ", &float_data ) == 0 )
+			{
+				fclose( datafile );
+				printf("\n\runable to read file %s\n",datafilename);
+				return -1;
+			}
+			data[i] = ( (real_t) float_data );
+		}
+
+		fclose( datafile );
+
+		return -1;
+}
 
 void Utils::LoadVec(const char* str, int_t** vec, int_t& nv){
 		std::string filename_base=str;
@@ -41,6 +69,32 @@ void Utils::LoadVec(const char* str, int_t** vec, int_t& nv){
 		}
 
 		delete [] tmp;
+	}
+	
+int_t Utils::readFromFile(int_t* data, int_t n, const char* datafilename){
+		
+		int_t i;
+		FILE* datafile;
+
+		if ( ( datafile = fopen( datafilename, "r" ) ) == 0 )
+		{
+			printf("\n\runable to read file %s\n",datafilename);
+			return -1;
+		}
+
+		for(i=0; i<n; ++i)
+		{
+			if(fscanf( datafile, "%d\n", &(data[i]) ) == 0)
+			{
+				fclose( datafile );
+				printf("\n\runable to read file %s\n",datafilename);
+				return -1;
+			}
+		}
+
+		fclose( datafile );
+
+		return 1;
 	}
 
 void Utils::DotProduct(const real_t* a, const real_t* b, const int& n, real_t& res){
@@ -99,78 +153,16 @@ void Utils::VectorMult(const real_t* a, const real_t* b, real_t* c, int_t n){
 			c[k]=a[k]*b[k];
 		}
 	}
-
-
-
-	/*
-	 *	r e a d F r o m F i l e
-	 */
-
-int_t Utils::readFromFile(real_t* data, int_t n, const char* datafilename){
-		int_t i;
-		real_t float_data;
-		FILE* datafile;
-
-		if ( ( datafile = fopen( datafilename, "r" ) ) == 0 )
-		{
-			printf("\n\runable to read file 123%s\n",datafilename);
-			return -1;
-		}
-
-		for( i=0; i<n; ++i )
-		{
-				
-			if ( fscanf( datafile, "%lf ", &float_data ) == 0 )
-			{
-				fclose( datafile );
-				printf("\n\runable to read file %s\n",datafilename);
-				return -1;
-			}
-			data[i] = ( (real_t) float_data );
-		}
-
-		fclose( datafile );
-
-		return -1;
-}
-
-	
-int_t Utils::readFromFile(int_t* data, int_t n, const char* datafilename){
-		
-		int_t i;
-		FILE* datafile;
-
-		if ( ( datafile = fopen( datafilename, "r" ) ) == 0 )
-		{
-			printf("\n\runable to read file %s\n",datafilename);
-			return -1;
-		}
-
-		for(i=0; i<n; ++i)
-		{
-			if(fscanf( datafile, "%d\n", &(data[i]) ) == 0)
-			{
-				fclose( datafile );
-				printf("\n\runable to read file %s\n",datafilename);
-				return -1;
-			}
-		}
-
-		fclose( datafile );
-
-		return 1;
-	}
-
 	
 	// Multiplies two matrices A and B (matrices stored row wise)
 void Utils::MatrixMult(const real_t* matA, const real_t* matB, real_t* matC, \
 						const int_t rowsA, const int_t colsA, const int_t colsB){
-	
+		
 	for (int_t i = 0; i<rowsA; ++i){
 		for (int_t j = 0; j<colsB; ++j){
 			matC[i*colsB + j] = 0;
 			for (int_t k = 0; k<colsA; ++k){
-				matC[i*colsB +j] += matA[i*colsA+k]*matB[k*colsB+j];				
+				matC[i*colsB +j] += matA[i*colsA+k]*matB[k*colsB+j];	
 			}
 		}
 	}

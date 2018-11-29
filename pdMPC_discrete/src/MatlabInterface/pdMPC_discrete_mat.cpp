@@ -1,5 +1,3 @@
-#pragma once
-
 #include "mex.h"
 #include "../QPSolver.cpp"
 #include "../MPCSolver.cpp"
@@ -54,31 +52,21 @@ void mexFunction( int_t nlhs, mxArray* plhs[], int_t nrhs, const mxArray* prhs[]
 		char dirString[100];
 		mxGetString( prhs[1],dirString,100);
 
-		int_t handle=allocateMPCProblem(std::string(dirString));
-		nlhs=1;
-		plhs[0]=mxCreateDoubleScalar(handle);
+		int_t handle = allocateMPCProblem(std::string(dirString));
+		nlhs = 1;
+		plhs[0] = mxCreateDoubleScalar(handle);
 		
 	}else if(strcmp( typeString,"s")==0){
 		// get instance
 		int_t handle = (uint_t)mxGetScalar( prhs[1] );
 
 		// get x0
-		double* x0_vec=(double*)mxGetPr( prhs[2] );
+		double* x0_vec = (double*)mxGetPr( prhs[2] );
 		
 		
 		// solve mpc problem
 		if(MPC_instances.size()>handle){
 			MPC_instances[handle]->solve(x0_vec);
-			/*
-			if(ret!=1){
-				// do real_t max_error handling
-				if(ret==-1){
-					myMexErrMsgTxt( "ERROR (parametrizedMPC): Problem is infeasible!\n");
-				}else if(ret==-2){
-					myMexErrMsgTxt( "ERROR (parametrizedMPC): Unknown problem!\n");
-				}
-			}
-			*/
 		}else{
 			// MPC instance has not been allocated
 			myMexErrMsgTxt( "ERROR (parametrizedMPC): MPC problem has not yet been allocated!\n" );
@@ -86,11 +74,11 @@ void mexFunction( int_t nlhs, mxArray* plhs[], int_t nrhs, const mxArray* prhs[]
 		}
 
 		// retrieve solution
-		nlhs=3;
-		plhs[0]=mxCreateDoubleScalar(handle);
-		plhs[1]= mxCreateDoubleMatrix(MPC_instances[handle]->getNumberOfOutputs(),1,mxREAL);
-		plhs[2]=mxCreateDoubleScalar((real_t)MPC_instances[handle]->getIterNumber());
-		double *u= mxGetPr( plhs[1] );
+		nlhs = 3;
+		plhs[0] = mxCreateDoubleScalar(handle);
+		plhs[1] = mxCreateDoubleMatrix(MPC_instances[handle]->getNumberOfOutputs(),1,mxREAL);
+		plhs[2] = mxCreateDoubleScalar((real_t)MPC_instances[handle]->getIterNumber());
+		double *u = mxGetPr( plhs[1] );
 		MPC_instances[handle]->getControlInputs(u);
 		//printf("u is %f\n",*u);
 
@@ -98,8 +86,8 @@ void mexFunction( int_t nlhs, mxArray* plhs[], int_t nrhs, const mxArray* prhs[]
 	else if(strcmp( typeString,"d")==0){
 		int_t handle = (uint_t)mxGetScalar( prhs[1] );
 		deleteMPCProblem(handle);
-		nlhs=1;
-		plhs[0]=mxCreateDoubleScalar(-1);
+		nlhs = 1;
+		plhs[0] = mxCreateDoubleScalar(-1);
 	}
 	else{
 		myMexErrMsgTxt( "ERROR (parametrizedMPC): Command string is not correct!\n" );
