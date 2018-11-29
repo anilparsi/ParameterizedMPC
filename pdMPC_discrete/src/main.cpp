@@ -11,7 +11,7 @@
 int main(){
 	real_t *A,*B;
 	int_t n,m,temp;
-	std::string dir = "ParameterizedMPC/pdMPC_discrete/build/Data/MPCmat";
+	std::string dir = "Data/MPCmat";
 
 	// load matrices A and B
 	std::string tmp=dir+"/A";

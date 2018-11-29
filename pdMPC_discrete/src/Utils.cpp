@@ -30,7 +30,7 @@ int_t Utils::readFromFile(real_t* data, int_t n, const char* datafilename){
 
 		if ( ( datafile = fopen( datafilename, "r" ) ) == 0 )
 		{
-			printf("\n\runable to read file 123%s\n",datafilename);
+			printf("\n\runable to read file %s\n",datafilename);
 			return -1;
 		}
 
