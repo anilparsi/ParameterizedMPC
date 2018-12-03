@@ -79,7 +79,7 @@ Inheritance diagram for MPCSolver:</div>
  <div class="center">
   <img src="class_m_p_c_solver.png" usemap="#MPCSolver_map" alt=""/>
   <map id="MPCSolver_map" name="MPCSolver_map">
-<area href="class_q_p_solver.html" title="Solve quadratic programming problems using active set approach. " alt="QPSolver" shape="rect" coords="0,0,77,24"/>
+<area href="class_q_p_solver.html" title="Solve quadratic programming problems using an active set approach. " alt="QPSolver" shape="rect" coords="0,0,77,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -119,15 +119,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:aaae3e6707169df5ccdc3c6efcaded6aa inherit pub_methods_class_q_p_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cebbc3d20f71559af79e0dad8c06ed0 inherit pub_methods_class_q_p_solver"><td class="memItemLeft" align="right" valign="top"><a id="a7cebbc3d20f71559af79e0dad8c06ed0"></a>
 int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_p_solver.html#a7cebbc3d20f71559af79e0dad8c06ed0">getIterNumber</a> () const</td></tr>
-<tr class="memdesc:a7cebbc3d20f71559af79e0dad8c06ed0 inherit pub_methods_class_q_p_solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of active set iterations <br /></td></tr>
+<tr class="memdesc:a7cebbc3d20f71559af79e0dad8c06ed0 inherit pub_methods_class_q_p_solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the number of active set iterations <br /></td></tr>
 <tr class="separator:a7cebbc3d20f71559af79e0dad8c06ed0 inherit pub_methods_class_q_p_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabacce92f9051a1c25e19764eda81614 inherit pub_methods_class_q_p_solver"><td class="memItemLeft" align="right" valign="top"><a id="aabacce92f9051a1c25e19764eda81614"></a>
 int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_p_solver.html#aabacce92f9051a1c25e19764eda81614">getExitFlag</a> () const</td></tr>
 <tr class="memdesc:aabacce92f9051a1c25e19764eda81614 inherit pub_methods_class_q_p_solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">get exit flag <br /></td></tr>
 <tr class="separator:aabacce92f9051a1c25e19764eda81614 inherit pub_methods_class_q_p_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a303911423217db7d18f7f2e1fcee4ee8 inherit pub_methods_class_q_p_solver"><td class="memItemLeft" align="right" valign="top"><a id="a303911423217db7d18f7f2e1fcee4ee8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_p_solver.html#a303911423217db7d18f7f2e1fcee4ee8">getSolutionCopy</a> (real_t *z_out) const</td></tr>
-<tr class="memdesc:a303911423217db7d18f7f2e1fcee4ee8 inherit pub_methods_class_q_p_solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the solution to QP <br /></td></tr>
+<tr class="memitem:a303911423217db7d18f7f2e1fcee4ee8 inherit pub_methods_class_q_p_solver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_p_solver.html#a303911423217db7d18f7f2e1fcee4ee8">getSolutionCopy</a> (real_t *z_out) const</td></tr>
+<tr class="memdesc:a303911423217db7d18f7f2e1fcee4ee8 inherit pub_methods_class_q_p_solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the solution to QP  <a href="class_q_p_solver.html#a303911423217db7d18f7f2e1fcee4ee8">More...</a><br /></td></tr>
 <tr class="separator:a303911423217db7d18f7f2e1fcee4ee8 inherit pub_methods_class_q_p_solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -260,7 +259,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 
 <p>solve the QP at one time instance for a given state </p>
-<p>This function is called at each time instance of the MPC algorithm. In this function, the optimization problem is modified according to the current state. Then the <a class="el" href="class_q_p_solver.html" title="Solve quadratic programming problems using active set approach. ">QPSolver</a> class is used to solve the new problem.</p>
+<p>This function is called at each time instance of the MPC algorithm. In this function, the optimization problem is modified according to the current state. Then the <a class="el" href="class_q_p_solver.html" title="Solve quadratic programming problems using an active set approach. ">QPSolver</a> class is used to solve the new problem.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x_IC</td><td>is the current state of the system </td></tr>
@@ -271,8 +270,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>pdMPC_discrete/src/<a class="el" href="_m_p_c_solver_8h_source.html">MPCSolver.h</a></li>
-<li>pdMPC_discrete/src/MPCSolver.cpp</li>
+<li>/Users/anilparsi/ParameterizedMPC/pMPC/src/<a class="el" href="_m_p_c_solver_8h_source.html">MPCSolver.h</a></li>
+<li>/Users/anilparsi/ParameterizedMPC/pMPC/src/MPCSolver.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

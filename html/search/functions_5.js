@@ -10,6 +10,5 @@ var searchData=
   ['getnumberofoutputs',['getNumberOfOutputs',['../class_m_p_c_solver.html#ad9d6cfaaf59c5046614a6d06de6740c3',1,'MPCSolver']]],
   ['getsize',['getSize',['../class_constraint_set.html#abb1cf1f89ec685528d609f9e62b3be8a',1,'ConstraintSet']]],
   ['getsizeptr',['getSizePtr',['../class_constraint_set.html#adc8815d6213c08b115d3438193204820',1,'ConstraintSet']]],
-  ['getsolutioncopy',['getSolutionCopy',['../class_q_p_solver.html#a303911423217db7d18f7f2e1fcee4ee8',1,'QPSolver']]],
-  ['getsqrt',['getSqrt',['../class_utils.html#abee1742a6f723a8730d422add764cf2d',1,'Utils']]]
+  ['getsolutioncopy',['getSolutionCopy',['../class_q_p_solver.html#a303911423217db7d18f7f2e1fcee4ee8',1,'QPSolver']]]
 ];

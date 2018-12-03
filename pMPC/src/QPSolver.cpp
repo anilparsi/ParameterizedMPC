@@ -26,14 +26,14 @@ QPSolver::QPSolver(std::string dir){
 
 		cCurrentPath[sizeof(cCurrentPath) - 1] = '\0'; /* not really required */
 
-		printf ("The current working directory is %s \n", cCurrentPath);
+		// printf ("The current working directory is %s \n", cCurrentPath);
 	}
 
 	std::string tmp;
 
-	// Basic paramters
+	// Load basic paramters
 	{
-		tmp=dir+"/params";
+		tmp = dir+"/params";
 		int_t nparams;
 		real_t *tmpvec;
 		
@@ -52,9 +52,9 @@ QPSolver::QPSolver(std::string dir){
 		nc = (int_t)tmpvec[4];
 		delete [] tmpvec;
 	}
-	// LOAD MPC DATA
 	
-	int_t tmp2;
+	// Load QP data	
+	int_t tmp2;				// contains the size of the loaded matrix or vector
 
 	tmp=dir+"/AiZ";
 	Utils::LoadVec(tmp.c_str(),&AiZ,tmp2);
@@ -122,7 +122,6 @@ void QPSolver::initialize()
 
 	assert(nz <= MAX_VARS && "nz is less than MAX_VARS");
 
-
 	temp_nz = new real_t[nz];
 	temp_nz2 = new real_t[nz];
 
@@ -132,7 +131,7 @@ void QPSolver::initialize()
 	LiTLi = new real_t[nz*nz];
 	indices = new int_t[nz + 1];
 
-	// construct LiTLi matrix;
+	// construct LiTLi matrix
 	real_t *temp_nznz = new real_t[nz*nz];
 	Utils::MatrixTranspose(Li, temp_nznz, nz, nz);
 	Utils::MatrixMult(temp_nznz, Li, LiTLi, nz, nz, nz);
@@ -167,22 +166,25 @@ void QPSolver::solve(){
 	bool reRunFlag = true;
 	while (iter<MAXITER)
 	{
+		// solve the problem with current active set as equality constraints
+			// calculate Lagrange multipliers
 		calcLambda();
+			// calculate solution 
 		calc_z();
 
 		if(Utils::anyPositive(lambda,activeCons->getActiveSetSize())){
-			// positive lagrange multiplier: must be removed from active set
+			// positive Lagrange multiplier: a constraint must be removed from active set			
 			activeSetIterations();
 		}
 
+		// check all constraints for violations
 		checkConstraints();
 		if (viol)
 		{	
 			addConstraint(viol_idx);
 
 			if (exitFlag < 0) {
-				// add exception handler: in derived classes
-				// Increase tolerance for the next run. 
+				// relax tolerance for the next run. 
 				TOL = tolMax;
 				activeCons->resetActiveSet();
 				return;
@@ -192,12 +194,12 @@ void QPSolver::solve(){
 		else
 		{	//QP solved
 			exitFlag = 0;	
-			TOL = tolMin;			// Reset tolerance to tight
+			TOL = tolMin;			// tighten the tolerance
 			return;
 		}
 
 		if (iter == iterRelax) {
-			// relax constraint tolerance and try to solve the problem
+			// relax tolerance and try to solve the problem
 			TOL = tolMax;
 			activeCons->resetActiveSet();			
 		}
@@ -242,7 +244,6 @@ void QPSolver::calc_z(){
 		
 	}
 }
-// check constraints for the reduced problem
 
 void QPSolver::checkConstraints(){
 	

@@ -112,5 +112,6 @@ vec2dense(tmp(:),fullfile(path,'B'));
 
 % generate mex function
 run(fullfile('..','pMPC','src','MatlabInterface','make.m'))
+
 % initialize solver
 handle = pMPC('i',path);

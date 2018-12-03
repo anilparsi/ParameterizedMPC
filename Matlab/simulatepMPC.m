@@ -66,5 +66,7 @@ for k = 2:nsteps
     
 end
 
+fprintf('Simulation Complete \n');
+
 % terminate solver
 pMPC('d',handle);

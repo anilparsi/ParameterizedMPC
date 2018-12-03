@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Solve quadratic programming problems using active set approach.  
+<p>Solve quadratic programming problems using an active set approach.  
  <a href="class_q_p_solver.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_q_p_solver_8h_source.html">QPSolver.h</a>&gt;</code></p>
@@ -103,15 +103,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:aaae3e6707169df5ccdc3c6efcaded6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cebbc3d20f71559af79e0dad8c06ed0"><td class="memItemLeft" align="right" valign="top"><a id="a7cebbc3d20f71559af79e0dad8c06ed0"></a>
 int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_p_solver.html#a7cebbc3d20f71559af79e0dad8c06ed0">getIterNumber</a> () const</td></tr>
-<tr class="memdesc:a7cebbc3d20f71559af79e0dad8c06ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of active set iterations <br /></td></tr>
+<tr class="memdesc:a7cebbc3d20f71559af79e0dad8c06ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the number of active set iterations <br /></td></tr>
 <tr class="separator:a7cebbc3d20f71559af79e0dad8c06ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabacce92f9051a1c25e19764eda81614"><td class="memItemLeft" align="right" valign="top"><a id="aabacce92f9051a1c25e19764eda81614"></a>
 int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_p_solver.html#aabacce92f9051a1c25e19764eda81614">getExitFlag</a> () const</td></tr>
 <tr class="memdesc:aabacce92f9051a1c25e19764eda81614"><td class="mdescLeft">&#160;</td><td class="mdescRight">get exit flag <br /></td></tr>
 <tr class="separator:aabacce92f9051a1c25e19764eda81614"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a303911423217db7d18f7f2e1fcee4ee8"><td class="memItemLeft" align="right" valign="top"><a id="a303911423217db7d18f7f2e1fcee4ee8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_p_solver.html#a303911423217db7d18f7f2e1fcee4ee8">getSolutionCopy</a> (real_t *z_out) const</td></tr>
-<tr class="memdesc:a303911423217db7d18f7f2e1fcee4ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the solution to QP <br /></td></tr>
+<tr class="memitem:a303911423217db7d18f7f2e1fcee4ee8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_p_solver.html#a303911423217db7d18f7f2e1fcee4ee8">getSolutionCopy</a> (real_t *z_out) const</td></tr>
+<tr class="memdesc:a303911423217db7d18f7f2e1fcee4ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the solution to QP  <a href="#a303911423217db7d18f7f2e1fcee4ee8">More...</a><br /></td></tr>
 <tr class="separator:a303911423217db7d18f7f2e1fcee4ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -205,7 +204,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a8f4a96b2ae71c5ab044f363587f2f991"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Solve quadratic programming problems using active set approach. </p>
+<div class="textblock"><p>Solve quadratic programming problems using an active set approach. </p>
 <p>QP formulation: min 0.5 z^T G z + g^T z s.t lbineq &lt;= AiZ z &lt;= ubineq</p>
 <p>The matrix G is specified in terms of the inverse of its Cholesky decomposition (Li): G = LL^T Li = inv(L) </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -226,7 +225,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 
 <p>Constructor to use MATLAB interface. </p>
-<p>Constructor to use the <a class="el" href="class_q_p_solver.html" title="Solve quadratic programming problems using active set approach. ">QPSolver</a> object with MATLAB </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructor to use the <a class="el" href="class_q_p_solver.html" title="Solve quadratic programming problems using an active set approach. ">QPSolver</a> object with MATLAB </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dir</td><td>contains the address of the directory with the matrices Li, g, lbineq, AiZ, ubineq in .txt files. </td></tr>
   </table>
@@ -316,7 +315,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 
 <p>Constructor for C++ interface. </p>
-<p>Constructor to use the <a class="el" href="class_q_p_solver.html" title="Solve quadratic programming problems using active set approach. ">QPSolver</a> object with C++ </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructor to use the <a class="el" href="class_q_p_solver.html" title="Solve quadratic programming problems using an active set approach. ">QPSolver</a> object with C++ </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Li_i</td><td>is the matrix containing Li </td></tr>
     <tr><td class="paramname">g_i</td><td>is the matrix containing g </td></tr>
@@ -335,9 +334,36 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a303911423217db7d18f7f2e1fcee4ee8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a303911423217db7d18f7f2e1fcee4ee8">&#9670;&nbsp;</a></span>getSolutionCopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QPSolver::getSolutionCopy </td>
+          <td>(</td>
+          <td class="paramtype">real_t *&#160;</td>
+          <td class="paramname"><em>z_out</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get the solution to QP </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">z_out</td><td>is the vector into which the solution to QP is copied </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>pdMPC_discrete/src/<a class="el" href="_q_p_solver_8h_source.html">QPSolver.h</a></li>
-<li>pdMPC_discrete/src/QPSolver.cpp</li>
+<li>/Users/anilparsi/ParameterizedMPC/pMPC/src/<a class="el" href="_q_p_solver_8h_source.html">QPSolver.h</a></li>
+<li>/Users/anilparsi/ParameterizedMPC/pMPC/src/QPSolver.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

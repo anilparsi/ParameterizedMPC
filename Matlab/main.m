@@ -1,3 +1,6 @@
+%% Parameterized Model Predictive Control (pMPC)
+% This is the interface to generate pMPC controllers for a linear time
+% invariant system. 
 clc;
 clear;
 
@@ -14,8 +17,6 @@ moas = generateMOAS(sys,apx);
 handle = generateSolver(moas);
 
 %% Closed Loop Simulation
-
-% simulate in closed-loop
 [t,xtraj,utraj,iter,exectime,J] = simulatepMPC(handle,moas);
 
 %% Plot trajectories

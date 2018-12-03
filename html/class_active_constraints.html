@@ -77,9 +77,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4a7a6fcb7255c16ddbfc0b5f1e21fb97"><td class="memItemLeft" align="right" valign="top"><a id="a4a7a6fcb7255c16ddbfc0b5f1e21fb97"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#a4a7a6fcb7255c16ddbfc0b5f1e21fb97">ActiveConstraints</a> (const real_t *const AiZ, const real_t *const lb, const real_t *const ub, const real_t *const Li, const int_t nz)</td></tr>
-<tr class="memdesc:a4a7a6fcb7255c16ddbfc0b5f1e21fb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
+<tr class="memitem:a4a7a6fcb7255c16ddbfc0b5f1e21fb97"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#a4a7a6fcb7255c16ddbfc0b5f1e21fb97">ActiveConstraints</a> (const real_t *const AiZ, const real_t *const lb, const real_t *const ub, const real_t *const Li, const int_t nz)</td></tr>
+<tr class="memdesc:a4a7a6fcb7255c16ddbfc0b5f1e21fb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="#a4a7a6fcb7255c16ddbfc0b5f1e21fb97">More...</a><br /></td></tr>
 <tr class="separator:a4a7a6fcb7255c16ddbfc0b5f1e21fb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1139e849291306d84107233da5be76dd"><td class="memItemLeft" align="right" valign="top"><a id="a1139e849291306d84107233da5be76dd"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_constraints.html#a1139e849291306d84107233da5be76dd">~ActiveConstraints</a> ()</td></tr>
@@ -171,9 +170,67 @@ real_t *&#160;</td><td class="memItemRight" valign="bottom"><b>m_temp_nz2</b></t
  W is the matrix containing the active constraints' coefficients. <br />
  w is the vector containing the active bounds on these constraints. <br />
  Matrix operations to be performed on the matrix W and the vector w are performed through this class. However, the matrix W is stored in the form of the QR decomposition of Li*W^T. The variable Rmat is used to store the R matrix from the QR decomposition. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>pdMPC_discrete/src/<a class="el" href="_active_constraints_8h_source.html">ActiveConstraints.h</a></li>
-<li>pdMPC_discrete/src/ActiveConstraints.cpp</li>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4a7a6fcb7255c16ddbfc0b5f1e21fb97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a7a6fcb7255c16ddbfc0b5f1e21fb97">&#9670;&nbsp;</a></span>ActiveConstraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ActiveConstraints::ActiveConstraints </td>
+          <td>(</td>
+          <td class="paramtype">const real_t *const&#160;</td>
+          <td class="paramname"><em>AiZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real_t *const&#160;</td>
+          <td class="paramname"><em>lb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real_t *const&#160;</td>
+          <td class="paramname"><em>ub</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real_t *const&#160;</td>
+          <td class="paramname"><em>Li</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int_t&#160;</td>
+          <td class="paramname"><em>nz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>constructor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">AiZ</td><td>contains the coefficients of inequality constraints </td></tr>
+    <tr><td class="paramname">lb</td><td>contains the lower bounds of inequality constraints </td></tr>
+    <tr><td class="paramname">ub</td><td>contains the containing upper bounds of inequality constraints </td></tr>
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/Users/anilparsi/ParameterizedMPC/pMPC/src/<a class="el" href="_active_constraints_8h_source.html">ActiveConstraints.h</a></li>
+<li>/Users/anilparsi/ParameterizedMPC/pMPC/src/ActiveConstraints.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
