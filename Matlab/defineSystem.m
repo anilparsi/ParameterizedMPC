@@ -38,7 +38,7 @@ sys.R = 0.05;
 sys.Ts = .02;
 
 % Give initial condition
-sys.x0 = [0.5; 0.5; 0.5; 0.5];
+sys.x0 = [0.3; 0.3; 0.3; 0.3];
 
 %% Derived variables
 

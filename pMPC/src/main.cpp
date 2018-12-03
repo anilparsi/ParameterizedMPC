@@ -29,7 +29,7 @@ int main(){
 	MPCSolver pmpc(dir);
 
 	int_t tmax = 1000;						// simulation duration
-	real_t x0[] = {0.5, 0.5, 0.5, 0.5};	
+	real_t x0[] = {0.3, 0.3, 0.3, 0.3};	
 	
 	real_t *x = new real_t [tmax*n],
 		   *u = new real_t [tmax*m];
