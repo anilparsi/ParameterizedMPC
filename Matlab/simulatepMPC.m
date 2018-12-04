@@ -1,4 +1,5 @@
-% simulates the system with the MPC controller in closed-loop.
+function [time,xtraj,utraj,iter,exectime,J] = simulatepMPC(handle,moas)
+%% Simulate the system with the MPC controller in closed-loop.
 % input:    handle   handle to the MPC solver
 %           x0       initial condition
 %           A,B      continuous time system dynamics \dot{x}=Ax+Bu
@@ -17,13 +18,7 @@
 %           J        closed-loop cost
 %           opt      exitflag of the MPC solver (not implemented)
 %
-function [time,xtraj,utraj,iter,exectime,J] = simulatepMPC(handle,moas)
-%% User defined variables
 
-% simulation time
-tend = 15;
-
-%%
 % number of simulation steps
 nsteps = tend/moas.sys.Ts+1;
 

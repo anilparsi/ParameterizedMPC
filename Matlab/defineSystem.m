@@ -9,9 +9,8 @@ function sys = defineSystem()
 % b_u   : upper bounds on constraints
 % Q     : penalty on state variables
 % R     : penalty on input variables
-% n     : number of states
-% m     : number of inputs
-% p     : number of constraints at each time step
+% Ts    : sampling time for discretization
+% x0    : initial condition of the system
 
 %% User-defined variables
 % continuous-time description \dot{x}=Ax + Bu
@@ -42,6 +41,7 @@ sys.x0 = [0.3; 0.3; 0.3; 0.3];
 
 %% Derived variables
 
+% matrix dimensions
 sys.n = size(Ac,1); 
 sys.m = size(Bc,2); 
 sys.p = size(sys.Cxu,1);

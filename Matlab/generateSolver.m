@@ -1,14 +1,15 @@
 function handle = generateSolver(moas)
 % This function generates all the matrices required for the C++ implementation 
 % of the problem and initializes the parameterized MPC solver.
-%% User defined settings for parameterized MPC
+
+%% User defined settings 
 
 % path to the .txt files: inputs for C++
 path = fullfile('..','pMPC','build','Data','MPCmat');
 
 tolMin  = 1e-9;     % minimum tolerance for constraint check
 tolMax  = 1e-5;     % maximum tolerance for constraint check
-MAXITER = 50;       % maximum number of iterations of active-set method
+maxIter = 50;       % maximum number of iterations of active-set method
 
 %% Derived variables
 
@@ -32,7 +33,7 @@ AiZ = moas.Aineq * moas.Z;
 % combine all the data in the parameter vector
 params=[tolMin;                     
         tolMax;
-        MAXITER;
+        maxIter;
         moas.sys.m * moas.apx.s - moas.sys.n;   % nz := number of variables in reduced problem
         length(moas.lbineq);                    % nc := number of inequality constraints
         moas.sys.n;

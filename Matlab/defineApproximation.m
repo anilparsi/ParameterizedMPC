@@ -1,5 +1,6 @@
 function apx = defineApproximation(sys)
 %% Function to define approximations
+% 
 % Default basis functions: Laguerre functions
 % alpha : decay constant
 % s     : number of  basis functions

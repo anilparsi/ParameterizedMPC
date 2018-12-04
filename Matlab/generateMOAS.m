@@ -1,12 +1,14 @@
 function moas = generateMOAS(sys,apx)
 %% To find maximum output admissible set(MOAS)
 % The MOAS for an autonomous system can be given by t_star, which is the
-% time index until which the constraints must be included. A variable
-% time_indices can be used to give the time-based active constraints at
-% each time step. 
-% This function uses a branch and bound technique to find the value of
-% t_star. The window in which t_star is estimated is given in the value
-% window. 
+% time index until which the constraints must be included in the set. The 
+% variable time_indices can be used to give the time-based active indices
+% at each time step. This function uses a branch and bound technique to 
+% estimate the value of t_star. 
+%
+% window: size of the window used in the branch and bound technique
+% max_size: maximum value of t_star. If t_star is found to be higher than
+%           max_size, the MOAS generated will use max_size as t_star.
 %% User defined settings
 
 % Window size to estimate t_star 
