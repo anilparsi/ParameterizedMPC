@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-PROJECT(pdMPC_discrete)
+PROJECT(pMPC)
 
 file(GLOB PROJECT_SOURCE 
 	"src/*.h"
