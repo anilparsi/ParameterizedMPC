@@ -19,6 +19,13 @@ function [time,xtraj,utraj,iter,exectime,J] = simulatepMPC(handle,moas)
 %           opt      exitflag of the MPC solver (not implemented)
 %
 
+
+%% User defined variables
+
+% simulation time
+tend = 15;
+
+%%
 % number of simulation steps
 nsteps = tend/moas.sys.Ts+1;
 
@@ -61,7 +68,7 @@ for k = 2:nsteps
     
 end
 
-fprintf('Simulation Complete \n');
+fprintf('Simulation complete \n');
 
 % terminate solver
 pMPC('d',handle);
