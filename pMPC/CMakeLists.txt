@@ -8,5 +8,5 @@ file(GLOB PROJECT_SOURCE
 
 include_directories(src)
 	
-add_executable(pdMPC_discrete ${PROJECT_SOURCE})
-#add_library(pdMPC_discrete_lib STATIC ${PROJECT_SOURCE} )
+add_executable(pMPC ${PROJECT_SOURCE})
+#add_library(pMPC STATIC ${PROJECT_SOURCE} )
